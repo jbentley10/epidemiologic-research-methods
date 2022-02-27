@@ -57,7 +57,7 @@ export const epiTheme = createTheme({
       fontFamily: `"Unna"`,
       fontWeight: 400,
       fontSize: '48px',
-      lineHeight: '45px',
+      lineHeight: '50px',
       letterSpacing: '-0.00833em',
     },
     // H2 - Used for the headings at the top of the dashboards

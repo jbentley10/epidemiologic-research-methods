@@ -62,7 +62,7 @@ const Navigation = () => {
             }}
           >
             {pages.map((page) => (
-              <Link href={"/" + page.toLowerCase()}>
+              <Link key={page} href={"/" + page.toLowerCase()}>
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
@@ -122,7 +122,7 @@ const Navigation = () => {
               }}
             >
               {pages.map((page) => (
-                <Link href={"/" + page.toLowerCase()}>
+                <Link key={page} href={"/" + page.toLowerCase()}>
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>

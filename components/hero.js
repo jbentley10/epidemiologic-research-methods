@@ -2,34 +2,55 @@
  * @file hero.js
  */
 // Import dependencies
-import { Typography } from "@mui/material";
-import { Canvas, useFrame, pointLight, ambientLight } from '@react-three/fiber'
-
-// Import components
-import ThreeJSBox from './threejs-hero';
+import { Button, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 
 // Import styles
-import { heroContainer } from '../styles/Home.module.css';
+import {
+  heroContainer,
+  textContainer,
+  button,
+  heading1,
+  heading2,
+} from "../styles/Hero.module.scss";
+import { epiTheme } from "../styles/epiTheme";
 
 const Hero = () => {
   return (
-    <div className={heroContainer} id="main">
-        <Typography 
-            variant={`h1`}
+    <div id="main" className={heroContainer}>
+      <div className={textContainer}>
+        <motion.div
+          initial={{ translateY: -10, opacity: 0 }}
+          animate={{ translateY: 1, opacity: 1 }}
+          transition={{ duration: 2 }}
         >
+          <Typography className={heading1} variant={`h1`}>
             Epidemiologic Research & Methods, LLC
-        </Typography>
-        <Typography 
-            variant={`h2`}
+          </Typography>
+        </motion.div>
+        <motion.div
+          initial={{ translateY: 10, opacity: 0 }}
+          animate={{ translateY: 1, opacity: 1 }}
+          transition={{ duration: 3 }}
         >
+          <Typography className={heading2} variant={`h2`}>
             Expidemiology expert consulting
-        </Typography>
-        <Canvas>
-            <ambientLight />
-            <pointLight position={[10, 10, 10]} />
-            <ThreeJSBox key={1} position={[-1.2, 0, 0]} />
-            <ThreeJSBox key={2} position={[1.2, 0, 0]} />
-        </Canvas>
+          </Typography>
+        </motion.div>
+        <motion.div
+          initial={{ translateX: -5, opacity: 0 }}
+          animate={{ translateX: 1, opacity: 1 }}
+          transition={{ duration: 4 }}
+        >
+          <Button
+            className={button}
+            variant={"contained"}
+            color={epiTheme.primary}
+          >
+            Learn More
+          </Button>
+        </motion.div>
+      </div>
     </div>
   );
 };

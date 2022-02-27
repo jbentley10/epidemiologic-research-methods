@@ -1,0 +1,23 @@
+.heroContainer {
+  padding: 25vh 10vw;
+  background-image: url('../public/images/science1.jpeg');
+}
+
+.textContainer {
+  color: #ffffff;
+  text-align: left;
+  width: 50%;
+
+  @media (max-width: 640px) {
+    text-align: center;
+  }
+}
+
+.heading2 {
+  padding: 1rem 0;
+}
+
+.button {
+  margin-top: 1.5rem;
+}
+
