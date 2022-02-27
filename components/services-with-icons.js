@@ -42,7 +42,7 @@ const ServicesWithIcons = () => {
         </Typography>
       </div>
       <Grid container spacing={4}>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <CircleElement
             icon={<MedicationIcon className={icon} />}
             heading={"Pills!"}
@@ -50,7 +50,7 @@ const ServicesWithIcons = () => {
           />
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <CircleElement
             icon={<MedicationIcon className={icon} />}
             heading={"Pills!"}
@@ -58,7 +58,7 @@ const ServicesWithIcons = () => {
           />
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <CircleElement
             icon={<MedicationIcon className={icon} />}
             heading={"Pills!"}
@@ -66,7 +66,7 @@ const ServicesWithIcons = () => {
           />
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <CircleElement
             icon={<MedicationIcon className={icon} />}
             heading={"Pills!"}

@@ -1,6 +1,10 @@
 .heroContainer {
   padding: 25vh 10vw;
   background-image: url('../public/images/science1.jpeg');
+
+  @media (max-width: 640px) {
+    padding: 2vh 5vw;
+  }
 }
 
 .textContainer {
@@ -10,6 +14,7 @@
 
   @media (max-width: 640px) {
     text-align: center;
+    width: 100%;
   }
 }
 

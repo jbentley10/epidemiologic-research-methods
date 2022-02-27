@@ -1,5 +1,5 @@
 /**
- * @file index.js
+ * @file experts.js
  */
 
 // Import dependencies
@@ -8,19 +8,16 @@ import { ThemeProvider } from "@mui/material";
 // Import components
 import Navigation from "../components/navigation";
 import Hero from "../components/hero";
-import Subheadline from "../components/subheadline";
-import ServicesWithIcons from "../components/services-with-icons";
 
 // Import styles
 import { epiTheme } from "../styles/epiTheme";
 
-export default function Home() {
+export default function Experts() {
+
   return (
     <ThemeProvider theme={epiTheme}>
       <Navigation />
-      <Hero/>
-      <Subheadline />
-      <ServicesWithIcons />
+      <Hero />
     </ThemeProvider>
   );
 }
