@@ -34,6 +34,7 @@ export default function Home() {
         width={`100%`}
         height={`30vh`}
         className={midwayImage}
+        alt={`Stacked waves`}
       />
       <Subheadline />
       <ServicesWithIcons />

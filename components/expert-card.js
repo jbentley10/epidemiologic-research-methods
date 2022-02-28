@@ -33,7 +33,7 @@ export default function ExpertCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <a target="_blank" href={props.resumeLink}>
+        <a target="_blank" href={props.resumeLink} rel={'noreferrer'}>
           <Button size="small" color="primary">
             View CV
           </Button>
