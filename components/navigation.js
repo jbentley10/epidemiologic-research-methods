@@ -32,7 +32,7 @@ const Navigation = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Desktop styles */}

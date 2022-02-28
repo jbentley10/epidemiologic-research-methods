@@ -45,7 +45,7 @@ const Hero = () => {
           <Button
             className={button}
             variant={"contained"}
-            color={epiTheme.primary}
+            size={`large`}
           >
             Learn More
           </Button>

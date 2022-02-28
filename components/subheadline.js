@@ -21,7 +21,7 @@ const Subheadline = () => {
     <Box className={subheadlineContainer} id="main">
       <Grid container spacing={10}>
         <Grid item xs={1} />
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={4}>
           <Image
             src={`/images/scientist.webp`}
             layout={`intrinsic`}
@@ -31,13 +31,13 @@ const Subheadline = () => {
             className={subheadlineImage}
           />
         </Grid>
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={6}>
           <Paper elevation={2} className={textContainer}>
             <Typography className={headingText} variant={`h3`}>
               We are a full-service provider for all phases of epidemiologic
               study design.
             </Typography>
-            <Typography variant={`paragraph`}>
+            <Typography variant={`body1`}>
               With 15 team members including three Senior Epidemilogists, we
               provide expertise in substantive areas.
             </Typography>
@@ -47,6 +47,7 @@ const Subheadline = () => {
                   className={subheadlineButton}
                   variant={`contained`}
                   color={`primary`}
+                  size={`large`}
                 >
                   Meet the Team
                 </Button>

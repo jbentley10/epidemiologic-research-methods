@@ -54,15 +54,15 @@ export const epiTheme = createTheme({
   typography: {
     // H1 - Primarily used for large text inside the card blocks
     h1: {
-      fontFamily: `"Unna"`,
+      fontFamily: `"Inter"`,
       fontWeight: 400,
-      fontSize: '48px',
-      lineHeight: '50px',
+      fontSize: '70px',
+      lineHeight: '80px',
       letterSpacing: '-0.00833em',
     },
     // H2 - Used for the headings at the top of the dashboards
     h2: {
-      fontFamily: `"Unna"`,
+      fontFamily: `"Inter"`,
       fontWeight: 400,
       fontSize: '28px',
       lineHeight: 1.25,
@@ -70,25 +70,25 @@ export const epiTheme = createTheme({
     },
     // H3 - Used for the body text of health screening cards
     h3: {
-      fontFamily: `"Unna"`,
+      fontFamily: `"Inter"`,
       fontWeight: 400,
       fontSize: '30px',
-      lineHeight: '30px',
+      lineHeight: '35px',
       letterSpacing: '-0.00833em',
       textOverflow: 'ellipsis',
     },
     // H4 - Used for the headings of cards and panels
     h4: {
-      fontFamily: `"Unna"`,
+      fontFamily: `"Inter"`,
       fontWeight: 500,
-      fontSize: '21px',
+      fontSize: '20px',
       lineHeight: '25px',
       letterSpacing: '-0.00833em',
       textOverflow: 'ellipsis',
     },
     // H5 - Used for the headings of panel block list items, or highlighted body text (bold text)
     h5: {
-      fontFamily: `"Unna"`,
+      fontFamily: `"Inter"`,
       fontWeight: 500,
       fontSize: '18px',
       lineHeight: '21px',
@@ -96,7 +96,7 @@ export const epiTheme = createTheme({
     },
     // H6 - Used for dashboard subtitles
     h6: {
-      fontFamily: `"Unna"`,
+      fontFamily: `"Inter"`,
       fontWeight: 500,
       fontSize: '16px',
       lineHeight: '21px',
@@ -107,7 +107,7 @@ export const epiTheme = createTheme({
       fontFamily: `"Roboto"`,
       fontWeight: 400,
       fontSize: '15px',
-      lineHeight: '20px',
+      lineHeight: '22px',
       letterSpacing: '0.25px',
     },
     button: {

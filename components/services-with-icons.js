@@ -2,8 +2,7 @@
  * @file services-with-icons.js
  */
 // Import dependencies
-import { Button, Grid, Typography } from "@mui/material";
-import { motion } from "framer-motion";
+import { Grid, Typography } from "@mui/material";
 
 // Import styles
 import {
@@ -17,6 +16,10 @@ import {
 
 // Import icons
 import MedicationIcon from "@mui/icons-material/Medication";
+import PsychologyIcon from '@mui/icons-material/Psychology';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import CoronavirusIcon from '@mui/icons-material/Coronavirus';
+import BugReportIcon from '@mui/icons-material/BugReport';
 
 const CircleElement = (props) => {
   return (
@@ -38,39 +41,42 @@ const ServicesWithIcons = () => {
     <div className={bannerContainer}>
       <div>
         <Typography className={heading} variant={`h2`}>
-          Our Services
+          Our Expertise
         </Typography>
       </div>
       <Grid container spacing={4}>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4} lg={3}>
           <CircleElement
             icon={<MedicationIcon className={icon} />}
-            heading={"Pills!"}
-            subtext={"Pills!"}
+            heading={"Drug safety"}
           />
         </Grid>
 
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4} lg={3}>
           <CircleElement
-            icon={<MedicationIcon className={icon} />}
-            heading={"Pills!"}
-            subtext={"Pills!"}
+            icon={<PsychologyIcon className={icon} />}
+            heading={"Mental Health and Substance Abuse"}
           />
         </Grid>
 
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4} lg={3}>
           <CircleElement
-            icon={<MedicationIcon className={icon} />}
-            heading={"Pills!"}
-            subtext={"Pills!"}
+            icon={<WbSunnyIcon className={icon} />}
+            heading={"Environmental Health"}
           />
         </Grid>
 
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4} lg={3}>
           <CircleElement
-            icon={<MedicationIcon className={icon} />}
-            heading={"Pills!"}
-            subtext={"Pills!"}
+            icon={<CoronavirusIcon className={icon} />}
+            heading={"Infectious Disease"}
+          />
+        </Grid>
+
+        <Grid item xs={12} md={4} lg={3}>
+          <CircleElement
+            icon={<BugReportIcon className={icon} />}
+            heading={"Neurologic Disease"}
           />
         </Grid>
       </Grid>
