@@ -1,6 +1,11 @@
 .subheadlineImage {
     background-image: url('../public/images/scientist.webp');
     background-size: cover;
+    background-repeat: no-repeat;
+
+    @media (min-width: 940px) {
+        background-image: url('../public/images/testing.webp');
+    }
 
     @media (max-width: 640px) {
         display: none;
@@ -22,5 +27,5 @@
 }
 
 .subheadlineButton {
-    margin-top: 1rem;
+    margin-top: 2rem;
 }

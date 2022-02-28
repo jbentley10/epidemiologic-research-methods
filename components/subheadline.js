@@ -48,8 +48,8 @@ const Subheadline = () => {
   return (
     <Box>
       <Grid container spacing={10}>
-        <Grid item xs={12} md={6} lg={4} className={subheadlineImage} />
-        <Grid item xs={12} md={6} lg={9}>
+        <Grid item xs={12} md={6} className={subheadlineImage} />
+        <Grid item xs={12} md={6}>
           <div className={textContainer}>
             <motion.div
               ref={ref}
