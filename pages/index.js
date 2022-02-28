@@ -17,6 +17,7 @@ import Footer from "../components/footer";
 // Import styles
 import { epiTheme } from "../styles/epiTheme";
 import { midwayImage } from "../styles/Home.module.scss";
+import { homeBackground } from "../styles/Hero.module.scss";
 
 export default function Home() {
   return (
@@ -26,7 +27,7 @@ export default function Home() {
       <Hero
         heroText={`Epidemiologic Research & Methods, LLC`}
         heroSubtext={`Expidemiology expert consulting`}
-        button={true}
+        heroImage={homeBackground}
       />
       <Image
         src={`/images/stacked-waves-haikei.png`}

@@ -13,11 +13,10 @@ import {
   heading1,
   heading2,
 } from "../styles/Hero.module.scss";
-import { epiTheme } from "../styles/epiTheme";
 
 const Hero = (props) => {
   return (
-    <div id="main" className={heroContainer}>
+    <div id="main" className={`${heroContainer} ${props.heroImage}`}>
       <div className={textContainer}>
         <motion.div
           initial={{ translateY: -10, opacity: 0 }}
@@ -38,8 +37,8 @@ const Hero = (props) => {
           </Typography>
         </motion.div>
         <motion.div
-          initial={{ translateX: -5, opacity: 0 }}
-          animate={{ translateX: 1, opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 4 }}
         >
           {props.button && (

@@ -110,6 +110,13 @@ export const epiTheme = createTheme({
       lineHeight: "22px",
       letterSpacing: "0.25px",
     },
+     subtitle: {
+      fontFamily: `"Inter"`,
+      fontWeight: 400,
+      fontSize: "15px",
+      lineHeight: "22px",
+      letterSpacing: "0.25px",
+    },
     button: {
       fontFamily: "Roboto",
       fontWeight: 500,

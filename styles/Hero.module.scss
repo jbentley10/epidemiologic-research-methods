@@ -1,11 +1,19 @@
 .heroContainer {
   padding: 25vh 10vw;
-  background-image: url('../public/images/science1.png');
   background-blend-mode: darken;
+  background-size: cover;
 
   @media (max-width: 640px) {
     padding: 2vh 5vw;
   }
+}
+
+.homeBackground {
+  background-image: url('../public/images/science1.png');
+}
+
+.expertsBackground {
+  background-image: url('../public/images/science2.png');
 }
 
 .textContainer {
