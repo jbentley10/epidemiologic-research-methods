@@ -1,6 +1,10 @@
 .subheadlineImage {
     background-image: url('../public/images/scientist.webp');
     background-size: cover;
+
+    @media (max-width: 640px) {
+        display: none;
+    }
 }
 
 .textContainer {

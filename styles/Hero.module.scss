@@ -17,11 +17,20 @@
   @media (max-width: 640px) {
     text-align: center;
     width: 100%;
+    padding-top: 15vh;
   }
 }
 
 .heading1, .heading2 {
   cursor: default;
+}
+
+.heading1 {
+  @media (max-width: 640px) {
+    font-size: 50px;
+    line-height: 55px;
+    padding-bottom: 2vh;
+  }
 }
 
 .heading2 {
