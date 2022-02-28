@@ -1,19 +1,20 @@
-.subheadlineContainer {
-    background: #299FFF;
-    padding: 5rem 0;
-}
-
 .subheadlineImage {
-    border-radius: 10px;
+    background-image: url('../public/images/scientist.webp');
+    background-size: cover;
 }
 
 .textContainer {
-    padding: 2rem 2rem;
-    border-radius: 20px;
+    padding: 7rem 2rem;
 }
 
 .headingText {
     padding-bottom: 1.5rem;
+}
+
+.headingText, .subheadingText {
+    @media (min-width: 940px) {
+        width: 50%;
+    }
 }
 
 .subheadlineButton {

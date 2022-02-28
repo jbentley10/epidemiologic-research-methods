@@ -11,7 +11,7 @@ const ExpertListing = () => {
   return (
     <div className={expertListingContainer}>
       <Grid container spacing={5}>
-        <Grid item xs={12} sm={6} lg={2}>
+        <Grid item xs={12} sm={6} lg={4}>
           <ExpertCard
             name={"W. Dana Flanders"}
             title={"MD, DSc, MPH, MA"}
@@ -23,7 +23,7 @@ const ExpertListing = () => {
           />
         </Grid>
 
-        <Grid item xs={12} sm={6} lg={2}>
+        <Grid item xs={12} sm={6} lg={4}>
           <ExpertCard
             name={"Michael Goodman"}
             title={"MD, MPH"}
@@ -35,7 +35,7 @@ const ExpertListing = () => {
           />
         </Grid>
 
-        <Grid item xs={12} sm={6} lg={2}>
+        <Grid item xs={12} sm={6} lg={4}>
           <ExpertCard
             name={"Anne Dilley"}
             title={"PhD, MPH"}
@@ -47,7 +47,7 @@ const ExpertListing = () => {
           />
         </Grid>
 
-        <Grid item xs={12} sm={6} lg={2}>
+        <Grid item xs={12} sm={6} lg={4}>
           <ExpertCard
             name={"Cathy Lally"}
             title={"MSPH"}
@@ -55,7 +55,7 @@ const ExpertListing = () => {
               "Cathy Lally is an epidemiologist specializing in data analytics, database design, data management, project management, and SAS programming with over 30 years of research experience in multiple fields of epidemiology including Genetic Epidemiology, Pharmacoepidemiology, and Environmental and Occupational Health."
             }
             resumeLink={`/download/cv/cathy.pdf`}
-            imageLink={`/staff/w-dana-flanders.jpeg`}
+            imageLink={`/staff/CL.png`}
           />
         </Grid>
       </Grid>
