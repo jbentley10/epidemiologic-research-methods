@@ -15,7 +15,7 @@ import {
 } from "../styles/Hero.module.scss";
 import { epiTheme } from "../styles/epiTheme";
 
-const Hero = () => {
+const Hero = (props) => {
   return (
     <div id="main" className={heroContainer}>
       <div className={textContainer}>
@@ -25,7 +25,7 @@ const Hero = () => {
           transition={{ duration: 2 }}
         >
           <Typography className={heading1} variant={`h1`}>
-            Epidemiologic Research & Methods, LLC
+            {props.heroText}
           </Typography>
         </motion.div>
         <motion.div
@@ -34,7 +34,7 @@ const Hero = () => {
           transition={{ duration: 3 }}
         >
           <Typography className={heading2} variant={`h2`}>
-            Expidemiology expert consulting
+            {props.heroSubtext && props.heroSubtext}
           </Typography>
         </motion.div>
         <motion.div
@@ -42,13 +42,11 @@ const Hero = () => {
           animate={{ translateX: 1, opacity: 1 }}
           transition={{ duration: 4 }}
         >
-          <Button
-            className={button}
-            variant={"contained"}
-            size={`large`}
-          >
-            Learn More
-          </Button>
+          {props.button && (
+            <Button className={button} variant={"contained"} size={`large`}>
+              Learn More
+            </Button>
+          )}
         </motion.div>
       </div>
     </div>

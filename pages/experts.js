@@ -15,11 +15,10 @@ import Footer from "../components/footer";
 import { epiTheme } from "../styles/epiTheme";
 
 export default function Experts() {
-
   return (
     <ThemeProvider theme={epiTheme}>
       <Navigation />
-      <Hero />
+      <Hero heroText={"Meet the Experts"} button={false} />
       <ExpertListing />
       <Footer />
     </ThemeProvider>

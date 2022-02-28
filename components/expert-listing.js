@@ -11,7 +11,7 @@ const ExpertListing = () => {
   return (
     <div className={expertListingContainer}>
       <Grid container spacing={5}>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} lg={2}>
           <ExpertCard
             name={"W. Dana Flanders"}
             title={"MD, DSc, MPH, MA"}
@@ -23,7 +23,7 @@ const ExpertListing = () => {
           />
         </Grid>
 
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} lg={2}>
           <ExpertCard
             name={"Michael Goodman"}
             title={"MD, MPH"}
@@ -35,7 +35,7 @@ const ExpertListing = () => {
           />
         </Grid>
 
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} lg={2}>
           <ExpertCard
             name={"Anne Dilley"}
             title={"PhD, MPH"}
@@ -47,7 +47,7 @@ const ExpertListing = () => {
           />
         </Grid>
 
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} lg={2}>
           <ExpertCard
             name={"Cathy Lally"}
             title={"MSPH"}

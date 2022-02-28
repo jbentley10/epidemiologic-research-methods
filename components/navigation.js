@@ -17,6 +17,9 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
+// Import styles
+import { logo } from '../styles/Navigation.module.scss';
+
 // Declare pages from the app to populate the nav bar
 const pages = ["About", "Experts", "Services", "Publications", "Contact Us"];
 
@@ -37,21 +40,7 @@ const Navigation = () => {
         <Toolbar disableGutters>
           {/* Desktop styles */}
           <Link href="/">
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{
-                mr: 2,
-                display: {
-                  xs: "none",
-                  md: "flex",
-                },
-                cursor: "pointer",
-              }}
-            >
-              LOGO
-            </Typography>
+            <img className={logo} src={`/images/logo.svg`} />
           </Link>
 
           <Box
@@ -75,17 +64,6 @@ const Navigation = () => {
           </Box>
 
           {/* Mobile styles */}
-          <Link href="/">
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-            >
-              LOGO
-            </Typography>
-          </Link>
-
           <Box
             sx={{
               flexGrow: 1,
