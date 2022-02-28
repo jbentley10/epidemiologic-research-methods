@@ -46,14 +46,13 @@ const ExpertListing = () => {
     <div className={expertListingContainer}>
       <Grid container spacing={5}>
         {expertsData.map((expert) => (
-          <Grid item xs={12} sm={6} lg={4}>
+          <Grid key={expert.name} item xs={12} sm={6} lg={4}>
             <ExpertCard
               name={expert.name}
               title={expert.title}
               description={expert.description}
               resumeLink={expert.resumeLink}
               imageLink={expert.imageLink}
-              key={expert.name}
             />
           </Grid>
         ))}
