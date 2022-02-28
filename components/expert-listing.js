@@ -53,6 +53,7 @@ const ExpertListing = () => {
               description={expert.description}
               resumeLink={expert.resumeLink}
               imageLink={expert.imageLink}
+              key={expert.name}
             />
           </Grid>
         ))}
