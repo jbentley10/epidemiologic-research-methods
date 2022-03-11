@@ -4,6 +4,7 @@
 
 // Import dependencies
 import { React, useState } from "react";
+import Head from 'next/head';
 import { ThemeProvider, TextField, Typography, Button } from "@mui/material";
 import Navigation from "../components/navigation";
 

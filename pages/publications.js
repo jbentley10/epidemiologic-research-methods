@@ -4,6 +4,7 @@
 
 // Import dependencies
 import * as React from "react";
+import Head from 'next/head';
 import { Button, ThemeProvider } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
