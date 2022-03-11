@@ -12,7 +12,7 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 
 export default function ExpertCard(props) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, height: '100%', maxHeight: '190vh' }}>
       <CardMedia
         component="img"
         height="250"

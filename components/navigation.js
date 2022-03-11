@@ -51,7 +51,7 @@ const Navigation = () => {
             }}
           >
             {pages.map((page) => (
-              <Link key={page} href={"/" + page.toLowerCase()}>
+              <Link key={page} href={"/" + page.toLowerCase().replace(' ', '-')}>
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
