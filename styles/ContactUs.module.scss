@@ -1,0 +1,23 @@
+.formContainer {
+  padding: 5vh 10vw; 
+
+  div {
+    display: block;
+    width: 65%;
+    margin-bottom: 3vh;
+  }
+
+  a {
+    color: #0c71c3;
+  }
+
+  @media (max-width: 640px) {
+    div {
+      width: 100%;
+    }
+  }
+}
+
+.headingContainer {
+  margin-bottom: 5vh;
+}

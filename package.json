@@ -15,7 +15,7 @@
     "@fontsource/roboto": "^4.5.3",
     "@fontsource/unna": "^4.5.2",
     "@mantine/next": "^3.6.11",
-    "@mui/icons-material": "^5.4.2",
+    "@mui/icons-material": "^5.5.0",
     "@mui/material": "^5.4.3",
     "@mui/styles": "^5.4.2",
     "@react-spring/web": "^9.4.3",

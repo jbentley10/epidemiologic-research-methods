@@ -18,6 +18,18 @@ import { expertsBackground } from "../styles/Hero.module.scss";
 export default function Experts() {
   return (
     <ThemeProvider theme={epiTheme}>
+      <Head>
+        <title>Experts | Epidemiologic Research & Methods LLC</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
+        <html lang={`en`} />
+        <meta
+          name="description"
+          content={`Meet the experts over at Epidemiologic Research & Methods LLC.`}
+        />
+        <meta name="theme-color" content="#f9C586" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Navigation />
       <Hero heroText={"Meet the Experts"} heroImage={expertsBackground} button={false} />
       <ExpertListing />
