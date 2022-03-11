@@ -1,5 +1,5 @@
 /**
- * @file about.js
+ * @file services.js
  */
 
 // Import dependencies
@@ -16,11 +16,11 @@ import Hero from "../components/hero";
 import { expertsBackground } from "../styles/Hero.module.scss";
 import Footer from "../components/footer";
 
-export default function About() {
+export default function Services() {
   return (
     <ThemeProvider theme={epiTheme}>
       <Navigation />
-      <Hero heroText={"About"} heroImage={expertsBackground} button={false} />
+      <Hero heroText={"Services"} heroImage={expertsBackground} button={false} />
       <Footer />
     </ThemeProvider>
   );

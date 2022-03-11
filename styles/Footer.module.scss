@@ -1,11 +1,21 @@
 .footerContainer {
-    height: 15vh;
+    height: auto;
     background-color: #004F83;
     text-align: center;
     color: #ffffff;
-    padding-top: 2.5rem;
+    padding: 2.5rem 0;
 }
 
 .headingText {
     padding-bottom: 1rem;
+}
+
+.linkList {
+    li {
+        text-align: left;
+    }
+}
+
+.copyrightContainer {
+    padding-top: 3vh;
 }

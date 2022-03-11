@@ -1,9 +1,9 @@
 /**
- * @file about.js
+ * @file publications.js
  */
 
 // Import dependencies
-import { ThemeProvider } from "@mui/material";
+import { ThemeProvider, Typography } from "@mui/material";
 import Navigation from "../components/navigation";
 
 // Import styles
@@ -16,11 +16,11 @@ import Hero from "../components/hero";
 import { expertsBackground } from "../styles/Hero.module.scss";
 import Footer from "../components/footer";
 
-export default function About() {
+export default function Publications() {
   return (
     <ThemeProvider theme={epiTheme}>
       <Navigation />
-      <Hero heroText={"About"} heroImage={expertsBackground} button={false} />
+      <Hero heroText={"Publications"} heroImage={expertsBackground} button={false} />
       <Footer />
     </ThemeProvider>
   );
