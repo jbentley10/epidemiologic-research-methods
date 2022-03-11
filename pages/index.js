@@ -11,6 +11,7 @@ import Navigation from "../components/navigation";
 import Hero from "../components/hero";
 import Subheadline from "../components/subheadline";
 import ServicesWithIcons from "../components/services-with-icons";
+import ThreeCardBlock from '../components/three-card-block';
 import GooBlob from "../components/goo-blob";
 import Footer from "../components/footer";
 
@@ -38,7 +39,8 @@ export default function Home() {
         alt={`Stacked waves`}
       />
       <Subheadline />
-      <ServicesWithIcons />
+      <ThreeCardBlock />
+      {/* <ServicesWithIcons /> */}
       <Footer />
     </ThemeProvider>
   );
