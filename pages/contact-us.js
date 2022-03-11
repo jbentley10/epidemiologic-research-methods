@@ -87,7 +87,6 @@ export default function ContactUs() {
           label="Message"
           multiline
           rows={4}
-          maxRows={10}
           variant="outlined"
         />
         <Button onClick={handleSubmit} variant={`contained`}>

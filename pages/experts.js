@@ -4,6 +4,7 @@
 
 // Import dependencies
 import { ThemeProvider } from "@mui/material";
+import Head from 'next/head';
 
 // Import components
 import Navigation from "../components/navigation";
