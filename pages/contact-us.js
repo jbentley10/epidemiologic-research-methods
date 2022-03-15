@@ -62,10 +62,10 @@ export default function ContactUs() {
       />
       <div className={formContainer}>
         <div className={headingContainer}>
-          <Typography variant={`h2`}>Let's get in touch</Typography>
+          <Typography variant={`h2`}>Let&apos;s get in touch</Typography>
           <Typography variant={`body1`}>
             Use the form below to send us a message. Alternatively, you can send
-            an email to{" "}
+            an email to 
             <a href="mailto:cathy.lally@epidemiologymethods.com">
               cathy.lally@epidemiologymethods.com
             </a>

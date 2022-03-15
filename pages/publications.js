@@ -66,6 +66,7 @@ export default function Publications() {
             <a
               href="https://epidemiologymethods.com/wp-content/uploads/2019/07/Goodman-2017-Systematic-review-of-the-literature-on-triclosan-and-health-outcomes-in-humans.pdf"
               target="_blank"
+              rel="noreferrer"
             >
               <Button variant={"contained"}>Read the publication</Button>
             </a>
@@ -88,6 +89,7 @@ export default function Publications() {
             <a
               href="https://epidemiologymethods.com/wp-content/uploads/2019/07/Lally-2017-Indirect-estimation-of-the-prevalence-of-SMA-types-I-II-III-in-the-United-States.pdf"
               target="_blank"
+              rel="noreferrer"
             >
               <Button variant={"contained"}>Read the publication</Button>
             </a>
