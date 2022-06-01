@@ -43,9 +43,6 @@ const Footer = () => {
             <li>Link 3</li>
           </ul>
         </Grid>
-        <Grid item xs={4} md={3}>
-          <MedicationIcon/>
-        </Grid>
       </Grid>
       <div className={copyrightContainer}>
         <Typography variant={"body1"}>

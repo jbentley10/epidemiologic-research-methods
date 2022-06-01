@@ -1,5 +1,5 @@
 /**
- * @file subheadline.js
+ * @file subheadline-switch.js
  */
 // Import dependencies
 import { Button, Grid, Typography } from "@mui/material";
@@ -11,15 +11,15 @@ import { useEffect } from "react";
 
 // Import styles
 import {
-  mainGrid,
+  subheadlineContainer,
   textContainer,
   headingText,
   subheadingText,
-  subheadlineImage,
+  pieImage,
   subheadlineButton,
-} from "../styles/Subheadline.module.scss";
+} from "../styles/SubheadlineSwitch.module.scss";
 
-const Subheadline = () => {
+const SubheadlineSwitch = () => {
   // Special hooks for animating when elements are in view
   const controls = useAnimation();
   const [ref, inView] = useInView();
@@ -47,10 +47,9 @@ const Subheadline = () => {
   }, [controls, inView]);
 
   return (
-    <Box>
-      <Grid container spacing={10} className={mainGrid}>
-        <Grid item xs={12} md={6} className={subheadlineImage} />
-        <Grid item xs={12} md={6}>
+    <Box className={subheadlineContainer}>
+      <Grid container spacing={10}>
+      <Grid item xs={12} md={6}>
           <div className={textContainer}>
             <motion.div
               ref={ref}
@@ -76,29 +75,12 @@ const Subheadline = () => {
               provide expertise in substantive areas.
             </Typography>
             </motion.div>
-            <motion.div
-              ref={ref}
-              initial={"hidden"}
-              animate={controls}
-              variants={buttonVariants}
-              transition={{ duration: 4 }}
-            >
-              <Link passHref={true} href={`/experts`}>
-                <Button
-                  className={subheadlineButton}
-                  variant={`contained`}
-                  color={`primary`}
-                  size={`large`}
-                >
-                  Meet the Experts
-                </Button>
-              </Link>
-            </motion.div>
           </div>
         </Grid>
+        <Grid item xs={12} md={6} className={pieImage} />
       </Grid>
     </Box>
   );
 };
 
-export default Subheadline;
+export default SubheadlineSwitch;

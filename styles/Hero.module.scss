@@ -2,6 +2,8 @@
   padding: 25vh 10vw;
   background-blend-mode: darken;
   background-size: cover;
+  z-index: 10;
+  position: relative;
 
   @media (max-width: 640px) {
     padding: 2vh 5vw;
@@ -9,7 +11,7 @@
 }
 
 .homeBackground {
-  background-image: url('../public/images/science1.png');
+  background-image: url('../public/images/science2.webp');
 }
 
 .expertsBackground {
