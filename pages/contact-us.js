@@ -66,8 +66,8 @@ export default function ContactUs() {
           <Typography variant={`body1`}>
             Use the form below to send us a message. Alternatively, you can send
             an email to&nbsp;
-            <a href="mailto:cathy.lally@epidemiologymethods.com">
-              cathy.lally@epidemiologymethods.com
+            <a href="mailto:admin@epidemiologymethods.com">
+              admin@epidemiologymethods.com
             </a>
             .
           </Typography>
@@ -89,7 +89,7 @@ export default function ContactUs() {
           rows={4}
           variant="outlined"
         />
-        <Button onClick={handleSubmit} variant={`contained`}>
+        <Button onClick={handleSubmit} variant={`contained`} color={`secondary`}>
           Submit
         </Button>
       </div>

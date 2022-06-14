@@ -2,8 +2,9 @@
  * @file navigation.js
  */
 // Import dependencies
-import * as React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 // Import MUI components
 import AppBar from "@mui/material/AppBar";
@@ -24,7 +25,9 @@ import { logo } from '../styles/Navigation.module.scss';
 const pages = ["About", "Experts", "Services", "Publications", "Contact Us"];
 
 const Navigation = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElServices, setAnchorElServices] = useState(null);
+  const servicesOpen = Boolean(anchorElServices);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -34,13 +37,21 @@ const Navigation = () => {
     setAnchorElNav(null);
   };
 
+  const handleServicesClick = () => {
+    setAnchorElServices(event.currentTarget);
+  }
+
+  const handleServicesClose = () => {
+    setAnchorElServices(null);
+  }
+
   return (
     <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Desktop styles */}
           <Link href="/">
-            <img className={logo} src={`/images/logo.svg`} />
+            <Image alt={`Epidemiology Research Methods, LLC logo`} layout={`intrinsic`} width={`127`} height={`100`} className={logo} src={`/images/logo-web.jpg`} />
           </Link>
 
           <Box
@@ -52,13 +63,49 @@ const Navigation = () => {
           >
             {pages.map((page) => (
               <Link key={page} href={"/" + page.toLowerCase().replace(' ', '-')}>
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page}
-                </Button>
+                { page == 'Services' 
+                  ?
+                  <>
+                    <Button
+                      key={page}
+                      id="services-link"
+                      aria-controls={open ? 'basic-menu' : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? 'true' : undefined}
+                      onClick={handleServicesClick}
+                      sx={{ my: 4, mx: 2, color: "black", display: "block", fontSize: 18 }}
+                    >
+                      {page}
+                    </Button> 
+                    <Menu
+                      id="basic-menu"
+                      anchorEl={anchorElServices}
+                      open={servicesOpen}
+                      onClose={handleServicesClose}
+                      MenuListProps={{
+                        'aria-labelledby': 'basic-button',
+                      }}
+                    >
+                      <MenuItem onClick={handleServicesClose}>
+                        <Link key={page} href={"/" + page.toLowerCase().replace(' ', '-')}>Collaborative approach</Link>
+                      </MenuItem>
+                      <MenuItem onClick={handleServicesClose}>
+                        <Link key={page} href={"/" + page.toLowerCase().replace(' ', '-')}>Service 2</Link>
+                      </MenuItem>
+                      <MenuItem onClick={handleServicesClose}>
+                        <Link key={page} href={"/" + page.toLowerCase().replace(' ', '-')}>Service 3</Link>
+                      </MenuItem>
+                    </Menu>
+                  </>
+                  :
+                  <Button
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 4, mx: 2, color: "black", display: "block", fontSize: 18 }}
+                  >
+                    {page}
+                  </Button> 
+                }
               </Link>
             ))}
           </Box>

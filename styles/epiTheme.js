@@ -7,13 +7,13 @@ export const epiTheme = createTheme({
   palette: {
     type: "light",
     primary: {
-      main: "#0c71c3",
-      dark: "#004F83",
+      main: "#ffffff",
+      dark: "#f9f9f9",
       light: "rgba(0, 114, 188, .1)",
     },
     secondary: {
-      main: "#ffffff",
-      dark: "",
+      main: "#efc427",
+      dark: "#d8a912",
       light: "",
       contrastText: "",
     },

@@ -61,7 +61,7 @@ const Subheadline = () => {
             >
               <Typography className={headingText} variant={`h3`}>
                 We are a full-service provider for all phases of epidemiologic
-                study design.
+                research design.
               </Typography>
             </motion.div>
             <motion.div
@@ -87,7 +87,7 @@ const Subheadline = () => {
                 <Button
                   className={subheadlineButton}
                   variant={`contained`}
-                  color={`primary`}
+                  color={`secondary`}
                   size={`large`}
                 >
                   Meet the Experts

@@ -39,14 +39,13 @@ export default function Home() {
       <Navigation />
       <Hero
         heroText={`Epidemiologic Research & Methods, LLC`}
-        heroSubtext={`Expidemiology expert consulting`}
         heroImage={homeBackground}
       />
       <Image
         src={`/images/stacked-waves-haikei.png`}
         layout={`responsive`}
         width={`100%`}
-        height={`30vh`}
+        height={`10vh`}
         className={midwayImage}
         alt={`Stacked waves`}
       />
