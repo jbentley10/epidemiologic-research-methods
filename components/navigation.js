@@ -26,6 +26,7 @@ const pages = ["About", "Experts", "Services", "Publications", "Contact Us"];
 
 const Navigation = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
+
   const [anchorElServices, setAnchorElServices] = useState(null);
   const servicesOpen = Boolean(anchorElServices);
 
@@ -37,7 +38,7 @@ const Navigation = () => {
     setAnchorElNav(null);
   };
 
-  const handleServicesClick = () => {
+  const handleServicesClick = (event) => {
     setAnchorElServices(event.currentTarget);
   }
 
@@ -69,21 +70,21 @@ const Navigation = () => {
                     <Button
                       key={page}
                       id="services-link"
-                      aria-controls={open ? 'basic-menu' : undefined}
+                      aria-controls={servicesOpen ? 'services-menu' : undefined}
                       aria-haspopup="true"
-                      aria-expanded={open ? 'true' : undefined}
+                      aria-expanded={servicesOpen ? 'true' : undefined}
                       onClick={handleServicesClick}
                       sx={{ my: 4, mx: 2, color: "black", display: "block", fontSize: 18 }}
                     >
                       {page}
                     </Button> 
                     <Menu
-                      id="basic-menu"
+                      id="services-menu"
                       anchorEl={anchorElServices}
                       open={servicesOpen}
                       onClose={handleServicesClose}
                       MenuListProps={{
-                        'aria-labelledby': 'basic-button',
+                        'aria-labelledby': 'services-link',
                       }}
                     >
                       <MenuItem onClick={handleServicesClose}>

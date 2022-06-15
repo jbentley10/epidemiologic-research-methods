@@ -55,9 +55,9 @@ export const epiTheme = createTheme({
     // H1 - Primarily used for large text inside the card blocks
     h1: {
       fontFamily: `"Inter"`,
-      fontWeight: 400,
+      fontWeight: 500,
       letterSpacing: "-0.00833em",
-      fontSize: "70px",
+      fontSize: "75px",
       lineHeight: "80px",
     },
     // H2 - Used for the headings at the top of the dashboards
