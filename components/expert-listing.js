@@ -39,7 +39,7 @@ const ExpertListing = () => {
       description:
         "Cathy Lally is an epidemiologist specializing in data analytics, database design, data management, project management, and SAS programming with over 30 years of research experience in multiple fields of epidemiology including Genetic Epidemiology, Pharmacoepidemiology, and Environmental and Occupational Health.",
       resumeLink: `/download/cv/cathy.pdf`,
-      imageLink: `/staff/CL.png`,
+      imageLink: `/staff/cathy.jpg`,
     },
   ];
   return (
