@@ -1,5 +1,5 @@
 .heroContainer {
-  padding: 25vh 10vw;
+  padding: 35vh 8vw 20vh 8vw;
   background-blend-mode: darken;
   background-size: cover;
   z-index: 10;
@@ -8,6 +8,11 @@
   @media (max-width: 640px) {
     padding: 2vh 5vw;
   }
+}
+
+.subheroContainer {
+  @extend .heroContainer;
+  padding: 30vh 8vw 15vh 8vw;
 }
 
 .homeBackground {
@@ -21,12 +26,11 @@
 .textContainer {
   color: #ffffff;
   text-align: left;
-  width: 50%;
+  width: 100%;
   text-shadow: 3px 4px 3px #333333;
 
   @media (max-width: 640px) {
     text-align: center;
-    width: 100%;
     padding-top: 15vh;
   }
 }

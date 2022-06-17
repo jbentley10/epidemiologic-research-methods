@@ -1,0 +1,29 @@
+.columnsContainer {
+  margin: 0 auto;
+  text-align: center;
+  margin: 5vh 0;
+
+  .columnContainer {
+    border: 4px solid #000000;
+    border-radius: 10px;
+    margin: 0 4vw;
+
+    h4 {
+      padding: 3vw 3vh;
+    }
+
+    li {
+      text-align: left;
+      padding-bottom: 1em;
+      list-style-type: disc;
+    }
+
+    @media (max-width: 720px) {
+      margin-bottom: 5vw;
+    }
+  }
+
+  @media (max-width: 720px) {
+    justify-content: center;
+  }
+}

@@ -4,39 +4,45 @@
 
 // Import dependencies
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import Image from "next/image";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import { Button, Paper, Grid } from "@mui/material";
+
+// Import styles
+import { PaperCard } from '../styles/ExpertCard.module.scss';
 
 export default function ExpertCard(props) {
   return (
-    <Card sx={{ maxWidth: 345, height: '100%', maxHeight: '190vh' }}>
-      <CardMedia
-        component="img"
-        height="250"
-        image={"/images" + props.imageLink}
-        alt={props.name}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {props.name}
-        </Typography>
-        <Typography variant="subtitle" color="text.hint">
-          {props.title}
-        </Typography>
-        <Typography variant="body1" color="text.secondary">
-          {props.description}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <a target="_blank" href={props.resumeLink} rel={"noreferrer"}>
-          <Button size="small" color="primary">
-            View CV
-          </Button>
-        </a>
-      </CardActions>
-    </Card>
+    <Paper className={PaperCard}>
+      <Grid container>
+        <Grid item xs={3}>
+          <Image
+            layout={`responsive`}
+            width={"300"}
+            height={"300"}
+            src={"/images" + props.imageLink}
+            alt={props.name}
+          />
+        </Grid>
+        <Grid item xs={1} />
+        <Grid item xs={5}>
+          <Typography gutterBottom variant="h5" component="div">
+            {props.name}
+          </Typography>
+          <Typography variant="subtitle" color="text.hint">
+            {props.title}
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            {props.description}
+          </Typography>
+          <br />
+          <a target="_blank" href={props.resumeLink} rel={"noreferrer"}>
+            <Button size="small" variant={`contained`} color="secondary">
+              View CV
+            </Button>
+          </a>
+        </Grid>
+      </Grid>
+    </Paper>
   );
 }

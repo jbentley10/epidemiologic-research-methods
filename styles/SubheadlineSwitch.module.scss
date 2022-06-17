@@ -2,23 +2,6 @@
     height: 100%;
 }
 
-.pieImage {
-    background-image: url('../public/images/globe-2.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 1;
-    position: relative;
-    padding: 1rem 0;
-
-    @media (min-width: 940px) {
-        background-image: url('../public/images/globe-2.webp');
-    }
-
-    @media (max-width: 640px) {
-        display: none;
-    }
-}
-
 .textContainer {
     padding: 7rem 2rem;
     height: 100%;
@@ -34,8 +17,4 @@
     @media (max-width: 940px) {
         width: 100%;
     }
-}
-
-.subheadlineButton {
-    margin-top: 2rem;
 }

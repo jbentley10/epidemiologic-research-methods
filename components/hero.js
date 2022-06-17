@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 // Import styles
 import {
   heroContainer,
+  subheroContainer,
   textContainer,
   button,
   heading1,
@@ -16,7 +17,7 @@ import {
 
 const Hero = (props) => {
   return (
-    <div id="main" className={`${heroContainer} ${props.heroImage}`}>
+    <div id="main" className={`${heroContainer} ${props.heroImage} ${props.isSubhero && subheroContainer}`}>
       <div className={textContainer}>
         <motion.div
           initial={{ translateY: -10, opacity: 0 }}

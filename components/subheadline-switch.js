@@ -2,9 +2,9 @@
  * @file subheadline-switch.js
  */
 // Import dependencies
-import { Button, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import Link from "next/link";
+import Image from 'next/image';
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -15,8 +15,6 @@ import {
   textContainer,
   headingText,
   subheadingText,
-  pieImage,
-  subheadlineButton,
 } from "../styles/SubheadlineSwitch.module.scss";
 
 const SubheadlineSwitch = () => {
@@ -35,11 +33,6 @@ const SubheadlineSwitch = () => {
     visible: { translateY: 1, opacity: 1 }
   };
 
-  const buttonVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 }
-  }
-
   useEffect(() => {
     if (inView) {
       controls.start("visible");
@@ -48,7 +41,7 @@ const SubheadlineSwitch = () => {
 
   return (
     <Box className={subheadlineContainer}>
-      <Grid container spacing={10}>
+      <Grid container spacing={6}>
       <Grid item xs={12} md={6}>
           <div className={textContainer}>
             <motion.div
@@ -77,7 +70,14 @@ const SubheadlineSwitch = () => {
             </motion.div>
           </div>
         </Grid>
-        <Grid item xs={12} md={6} className={pieImage} />
+        <Grid item xs={12} md={6}>
+          <Image
+            src={`/images/people-pie.jpg`}
+            fill={`responsive`}
+            width={`800`}
+            height={`600`}
+          />
+        </Grid>
       </Grid>
     </Box>
   );

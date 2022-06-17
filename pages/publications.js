@@ -4,7 +4,7 @@
 
 // Import dependencies
 import * as React from "react";
-import Head from 'next/head';
+import Head from "next/head";
 import { Button, ThemeProvider } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -14,7 +14,10 @@ import Typography from "@mui/material/Typography";
 // Import styles
 import { epiTheme } from "../styles/epiTheme";
 import { expertsBackground } from "../styles/Hero.module.scss";
-import { accordionContainer, headingContainer } from "../styles/Publications.module.scss";
+import {
+  accordionContainer,
+  headingContainer,
+} from "../styles/Publications.module.scss";
 
 // Import components
 import Hero from "../components/hero";
@@ -32,15 +35,13 @@ export default function Publications() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <html lang={`en`} />
-        <meta
-          name="description"
-          content={`Read our publications.`}
-        />
+        <meta name="description" content={`Read our publications.`} />
         <meta name="theme-color" content="#f9C586" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navigation />
       <Hero
+        isSubhero={true}
         heroText={"Publications"}
         heroImage={expertsBackground}
         button={false}
@@ -48,7 +49,9 @@ export default function Publications() {
       <div className={accordionContainer}>
         <div className={headingContainer}>
           <Typography variant={`h2`}>Read our publications</Typography>
-          <Typography variant={`body1`}>Lorem ipsum solor dut amet. Codipsicing elit.</Typography>
+          <Typography variant={`body1`}>
+            Lorem ipsum solor dut amet. Codipsicing elit.
+          </Typography>
         </div>
         <Accordion>
           <AccordionSummary

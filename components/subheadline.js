@@ -5,6 +5,7 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -15,11 +16,10 @@ import {
   textContainer,
   headingText,
   subheadingText,
-  subheadlineImage,
   subheadlineButton,
 } from "../styles/Subheadline.module.scss";
 
-const Subheadline = () => {
+const Subheadline = (props) => {
   // Special hooks for animating when elements are in view
   const controls = useAnimation();
   const [ref, inView] = useInView();
@@ -49,7 +49,14 @@ const Subheadline = () => {
   return (
     <Box>
       <Grid container spacing={10} className={mainGrid}>
-        <Grid item xs={12} md={6} className={subheadlineImage} />
+        <Grid item xs={12} md={6}>
+          <Image
+            layout={`responsive`}
+            width={`800`}
+            height={`600`}
+            src={`/images/bar-chart-increase.jpg`}
+          />
+        </Grid>
         <Grid item xs={12} md={6}>
           <div className={textContainer}>
             <motion.div
@@ -60,8 +67,7 @@ const Subheadline = () => {
               transition={{ duration: 2 }}
             >
               <Typography className={headingText} variant={`h3`}>
-                We are a full-service provider for all phases of epidemiologic
-                research design.
+                {props.headingText}
               </Typography>
             </motion.div>
             <motion.div
@@ -72,8 +78,7 @@ const Subheadline = () => {
               transition={{ duration: 3 }}
             >
             <Typography className={subheadingText} variant={`body1`}>
-              With 15 team members including three Senior Epidemilogists, we
-              provide expertise in substantive areas.
+              {props.paragraphText}
             </Typography>
             </motion.div>
             <motion.div
@@ -83,14 +88,14 @@ const Subheadline = () => {
               variants={buttonVariants}
               transition={{ duration: 4 }}
             >
-              <Link passHref={true} href={`/experts`}>
+              <Link passHref={true} href={`/ ${props.buttonLink}`}>
                 <Button
                   className={subheadlineButton}
                   variant={`contained`}
                   color={`secondary`}
                   size={`large`}
                 >
-                  Meet the Experts
+                  {props.buttonText}
                 </Button>
               </Link>
             </motion.div>

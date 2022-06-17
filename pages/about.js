@@ -4,8 +4,8 @@
 
 // Import dependencies
 import { ThemeProvider } from "@mui/material";
-import Head from 'next/head';
-import Image from 'next/image';
+import Head from "next/head";
+import Image from "next/image";
 
 // Import styles
 import { epiTheme } from "../styles/epiTheme";
@@ -19,7 +19,6 @@ import Footer from "../components/footer";
 
 // Import assets
 import { expertsBackground } from "../styles/Hero.module.scss";
-import { fullImage } from "../styles/About.module.scss";
 
 export default function About() {
   return (
@@ -37,8 +36,18 @@ export default function About() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navigation />
-      <Hero heroText={"About"} heroImage={expertsBackground} button={false} />
-      <CenteredTextBlock />
+      <Hero
+        isSubhero={true}
+        heroText={"About"}
+        heroImage={expertsBackground}
+        button={false}
+      />
+      <CenteredTextBlock
+        headingCopy={`We are a full-service provider for all phases of epidemiologic study
+        design.`}
+        paragraphCopy={`With 15 team members including three Senior Epidemilogists, we
+        provide expertise in substantive areas.`}
+      />
       <SubheadlineSwitch />
       <Footer />
     </ThemeProvider>

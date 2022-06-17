@@ -11,7 +11,7 @@ import Head from "next/head";
 import Navigation from "../components/navigation";
 import Hero from "../components/hero";
 import Subheadline from "../components/subheadline";
-import ThreeCardBlock from '../components/three-card-block';
+import ThreeCardBlock from "../components/three-card-block";
 import GooBlob from "../components/goo-blob";
 import Footer from "../components/footer";
 
@@ -20,7 +20,10 @@ import { epiTheme } from "../styles/epiTheme";
 import { midwayImage } from "../styles/Home.module.scss";
 import { homeBackground } from "../styles/Hero.module.scss";
 
-export default function Home() {
+// Import functions
+import { fetchHome } from "../utils/contentfulData";
+
+export default function Home({ homeResponse }) {
   return (
     <ThemeProvider theme={epiTheme}>
       <Head>
@@ -38,7 +41,7 @@ export default function Home() {
       <GooBlob />
       <Navigation />
       <Hero
-        heroText={`Epidemiologic Research & Methods, LLC`}
+        heroText={homeResponse.hero}
         heroImage={homeBackground}
       />
       <Image
@@ -49,10 +52,33 @@ export default function Home() {
         className={midwayImage}
         alt={`Stacked waves`}
       />
-      <Subheadline />
-      <ThreeCardBlock />
-      {/* <ServicesWithIcons /> */}
+      <Subheadline 
+        headingText={homeResponse.subheadlineHeader}
+        paragraphText={homeResponse.subheadlineBody}
+        buttonText={homeResponse.buttonText}
+        buttonLink={homeResponse.buttonLink}
+      />
+      <ThreeCardBlock 
+        service1Header={homeResponse.service1Header}
+        service1Body={homeResponse.service1Body}
+        service2Header={homeResponse.service2Header}
+        service2Body={homeResponse.service2Body}
+        service3Header={homeResponse.service3Header}
+        service3Body={homeResponse.service3Body}
+      />
       <Footer />
     </ThemeProvider>
   );
+}
+
+export async function getStaticProps() {
+  const homeResponse = await fetchHome();
+
+  if (homeResponse.fields) {
+    return {
+      props: {
+        homeResponse,
+      },
+    };
+  }
 }

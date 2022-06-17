@@ -2,9 +2,8 @@
  * @file centered-text-block.js
  */
 // Import dependencies
-import { Button, Grid, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -14,11 +13,9 @@ import {
   textContainer,
   headingText,
   subheadingText,
-  subheadlineImage,
-  subheadlineButton,
 } from "../styles/CenteredTextBlock.module.scss";
 
-const CenteredTextBlock = () => {
+const CenteredTextBlock = ({headingCopy, paragraphCopy}) => {
   // Special hooks for animating when elements are in view
   const controls = useAnimation();
   const [ref, inView] = useInView();
@@ -32,11 +29,6 @@ const CenteredTextBlock = () => {
   const subheadingVariants = {
     hidden: { translateY: -5, opacity: 0 },
     visible: { translateY: 1, opacity: 1 },
-  };
-
-  const buttonVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
   };
 
   useEffect(() => {
@@ -56,8 +48,7 @@ const CenteredTextBlock = () => {
           transition={{ duration: 2 }}
         >
           <Typography className={headingText} variant={`h3`}>
-            We are a full-service provider for all phases of epidemiologic study
-            design.
+            {headingCopy}
           </Typography>
         </motion.div>
         <motion.div
@@ -68,8 +59,7 @@ const CenteredTextBlock = () => {
           transition={{ duration: 3 }}
         >
           <Typography className={subheadingText} variant={`body1`}>
-            With 15 team members including three Senior Epidemilogists, we
-            provide expertise in substantive areas.
+            {paragraphCopy}
           </Typography>
         </motion.div>
       </div>

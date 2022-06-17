@@ -57,8 +57,9 @@ export const epiTheme = createTheme({
       fontFamily: `"Inter"`,
       fontWeight: 500,
       letterSpacing: "-0.00833em",
-      fontSize: "75px",
+      fontSize: "65px",
       lineHeight: "80px",
+      textAlign: 'center'
     },
     // H2 - Used for the headings at the top of the dashboards
     h2: {

@@ -4,7 +4,7 @@
 
 // Import dependencies
 import { ThemeProvider } from "@mui/material";
-import Head from 'next/head';
+import Head from "next/head";
 
 // Import styles
 import { epiTheme } from "../styles/epiTheme";
@@ -12,6 +12,8 @@ import { epiTheme } from "../styles/epiTheme";
 // Import components
 import Hero from "../components/hero";
 import Navigation from "../components/navigation";
+import CenteredTextBlock from "../components/centered-text-block";
+import ThreeColumnLists from "../components/three-column-lists";
 
 // Import assets
 import { expertsBackground } from "../styles/Hero.module.scss";
@@ -33,7 +35,17 @@ export default function Services() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navigation />
-      <Hero heroText={"Services"} heroImage={expertsBackground} button={false} />
+      <Hero
+        isSubhero={true}
+        heroText={"Services"}
+        heroImage={expertsBackground}
+        button={false}
+      />
+      <ThreeColumnLists
+        column1Heading={`Heading 1`}
+        column2Heading={"Heading 2"}
+        column3Heading={"Heading 3"}
+      />
       <Footer />
     </ThemeProvider>
   );

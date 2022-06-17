@@ -4,7 +4,7 @@
 
 // Import dependencies
 import { ThemeProvider } from "@mui/material";
-import Head from 'next/head';
+import Head from "next/head";
 
 // Import components
 import Navigation from "../components/navigation";
@@ -32,7 +32,12 @@ export default function Experts() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navigation />
-      <Hero heroText={"Meet the Experts"} heroImage={expertsBackground} button={false} />
+      <Hero
+        isSubhero={true}
+        heroText={"Meet the Experts"}
+        heroImage={expertsBackground}
+        button={false}
+      />
       <ExpertListing />
       <Footer />
     </ThemeProvider>

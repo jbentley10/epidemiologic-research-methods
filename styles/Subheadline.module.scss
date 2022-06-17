@@ -1,21 +1,6 @@
 .mainGrid {
     margin-left: 0;
-}
-
-.subheadlineImage {
-    background-image: url('../public/images/bar-chart-increase.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
-    position: relative;
-
-    @media (min-width: 940px) {
-        background-image: url('../public/images/bar-chart-increase.webp');
-    }
-
-    @media (max-width: 640px) {
-        display: none;
-    }
+    padding: 4vh 0;
 }
 
 .textContainer {

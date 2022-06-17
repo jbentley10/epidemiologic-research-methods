@@ -4,7 +4,7 @@
 
 // Import dependencies
 import { React, useState } from "react";
-import Head from 'next/head';
+import Head from "next/head";
 import { ThemeProvider, TextField, Typography, Button } from "@mui/material";
 import Navigation from "../components/navigation";
 
@@ -56,6 +56,7 @@ export default function ContactUs() {
       </Head>
       <Navigation />
       <Hero
+        isSubhero={true}
         heroText={"Contact Us"}
         heroImage={expertsBackground}
         button={false}
@@ -89,7 +90,11 @@ export default function ContactUs() {
           rows={4}
           variant="outlined"
         />
-        <Button onClick={handleSubmit} variant={`contained`} color={`secondary`}>
+        <Button
+          onClick={handleSubmit}
+          variant={`contained`}
+          color={`secondary`}
+        >
           Submit
         </Button>
       </div>
