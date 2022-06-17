@@ -6,6 +6,7 @@
 import { ThemeProvider } from "@mui/material";
 import Image from "next/image";
 import Head from "next/head";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 // Import components
 import Navigation from "../components/navigation";
@@ -23,7 +24,7 @@ import { homeBackground } from "../styles/Hero.module.scss";
 // Import functions
 import { fetchHome } from "../utils/contentfulData";
 
-export default function Home({ homeResponse }) {
+export default function Home(props) {
   return (
     <ThemeProvider theme={epiTheme}>
       <Head>
@@ -41,7 +42,7 @@ export default function Home({ homeResponse }) {
       <GooBlob />
       <Navigation />
       <Hero
-        heroText={homeResponse.hero}
+        heroText={props.hero}
         heroImage={homeBackground}
       />
       <Image
@@ -53,18 +54,18 @@ export default function Home({ homeResponse }) {
         alt={`Stacked waves`}
       />
       <Subheadline 
-        headingText={homeResponse.subheadlineHeader}
-        paragraphText={homeResponse.subheadlineBody}
-        buttonText={homeResponse.buttonText}
-        buttonLink={homeResponse.buttonLink}
+        headingText={props.subheadlineHeader}
+        paragraphText={props.subheadlineParagraph}
+        buttonText={props.subheadlineLinkText}
+        buttonLink={props.subheadlineLink}
       />
       <ThreeCardBlock 
-        service1Header={homeResponse.service1Header}
-        service1Body={homeResponse.service1Body}
-        service2Header={homeResponse.service2Header}
-        service2Body={homeResponse.service2Body}
-        service3Header={homeResponse.service3Header}
-        service3Body={homeResponse.service3Body}
+        service1Header={props.service1Header}
+        service1Body={documentToReactComponents(props.service1Body)}
+        service2Header={props.service2Header}
+        service2Body={documentToReactComponents(props.service2Body)}
+        service3Header={props.service3Header}
+        service3Body={documentToReactComponents(props.service3Body)}
       />
       <Footer />
     </ThemeProvider>
@@ -77,7 +78,17 @@ export async function getStaticProps() {
   if (homeResponse.fields) {
     return {
       props: {
-        homeResponse,
+        hero: homeResponse.fields.hero,
+        subheadlineHeader: homeResponse.fields.subheadlineHeader,
+        subheadlineParagraph: homeResponse.fields.subheadlineParagraph,
+        subheadlineLinkText: homeResponse.fields.subheadlineLinkText,
+        subheadlineLink: homeResponse.fields.subheadlineLink,
+        service1Header: homeResponse.fields.service1Header,
+        service1Body: homeResponse.fields.service1Body,
+        service2Header: homeResponse.fields.section2Header,
+        service2Body: homeResponse.fields.section2Body,
+        service3Header: homeResponse.fields.section3Header,
+        service3Body: homeResponse.fields.section3Body,
       },
     };
   }

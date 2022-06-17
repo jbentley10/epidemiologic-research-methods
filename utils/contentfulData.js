@@ -12,3 +12,10 @@ export async function fetchHome() {
   
   console.log(`Error getting Entry.`)
 }
+
+export async function fetchAbout() {
+  const entry = await client.getEntry('78TioQnXxl5Ru6zYR8RmHo')
+  if (entry.fields) return entry
+  
+  console.log(`Error getting Entry.`)
+}

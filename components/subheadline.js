@@ -78,7 +78,7 @@ const Subheadline = (props) => {
               transition={{ duration: 3 }}
             >
             <Typography className={subheadingText} variant={`body1`}>
-              {props.paragraphText}
+            <div>{props.paragraphText}</div>
             </Typography>
             </motion.div>
             <motion.div

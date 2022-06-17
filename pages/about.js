@@ -20,7 +20,10 @@ import Footer from "../components/footer";
 // Import assets
 import { expertsBackground } from "../styles/Hero.module.scss";
 
-export default function About() {
+// Import functions
+import { fetchAbout } from '../utils/contentfulData';
+
+export default function About(props) {
   return (
     <ThemeProvider theme={epiTheme}>
       <Head>
@@ -43,13 +46,31 @@ export default function About() {
         button={false}
       />
       <CenteredTextBlock
-        headingCopy={`We are a full-service provider for all phases of epidemiologic study
-        design.`}
-        paragraphCopy={`With 15 team members including three Senior Epidemilogists, we
-        provide expertise in substantive areas.`}
+        headingCopy={props.centeredHeadingHeader}
+        paragraphCopy={props.centeredHeadingBody}
       />
-      <SubheadlineSwitch />
+      <SubheadlineSwitch 
+        splitTextHeader={props.splitTextHeader}
+        splitTextBody={props.splitTextBody}
+        splitTextImage={props.splitTextImage}
+      />
       <Footer />
     </ThemeProvider>
   );
+}
+
+export async function getStaticProps() {
+  const aboutResponse = await fetchAbout();
+
+  if (aboutResponse.fields) {
+    return {
+      props: {
+        centeredHeadingHeader: aboutResponse.fields.centeredHeadingHeader,
+        centeredHeadingBody: aboutResponse.fields.centeredHeadingBody,
+        splitTextHeader: aboutResponse.fields.splitTextHeader,
+        splitTextBody: aboutResponse.fields.splitTextBody,
+        splitTextImage: aboutResponse.fields.splitTextImage
+      },
+    };
+  }
 }

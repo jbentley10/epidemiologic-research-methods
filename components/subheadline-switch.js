@@ -17,7 +17,7 @@ import {
   subheadingText,
 } from "../styles/SubheadlineSwitch.module.scss";
 
-const SubheadlineSwitch = () => {
+const SubheadlineSwitch = (props) => {
   // Special hooks for animating when elements are in view
   const controls = useAnimation();
   const [ref, inView] = useInView();
@@ -52,8 +52,7 @@ const SubheadlineSwitch = () => {
               transition={{ duration: 2 }}
             >
               <Typography className={headingText} variant={`h3`}>
-                We are a full-service provider for all phases of epidemiologic
-                study design.
+                {props.splitTextHeader}
               </Typography>
             </motion.div>
             <motion.div
@@ -64,18 +63,17 @@ const SubheadlineSwitch = () => {
               transition={{ duration: 3 }}
             >
             <Typography className={subheadingText} variant={`body1`}>
-              With 15 team members including three Senior Epidemilogists, we
-              provide expertise in substantive areas.
+              {props.splitTextBody}
             </Typography>
             </motion.div>
           </div>
         </Grid>
         <Grid item xs={12} md={6}>
           <Image
-            src={`/images/people-pie.jpg`}
+            src={'https:' + props.splitTextImage.fields.file.url}
             fill={`responsive`}
-            width={`800`}
-            height={`600`}
+            width={props.splitTextImage.fields.file.details.image.width}
+            height={props.splitTextImage.fields.file.details.image.height}
           />
         </Grid>
       </Grid>
