@@ -54,9 +54,9 @@ export default function Publications(props) {
           <Typography variant={`h2`}>{props.heading}</Typography>
           <Typography variant={`body1`}>{props.description}</Typography>
         </div>
-        {props.publications.map((publication) => {
+        {props.publications.map((publication, index) => {
           return (
-            <Accordion>
+            <Accordion key={index}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
