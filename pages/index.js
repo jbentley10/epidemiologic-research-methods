@@ -22,6 +22,9 @@ import { homeBackground } from "../styles/Hero.module.scss";
 // Import functions
 import { fetchHome } from "../utils/contentfulData";
 
+const space = process.env.CONTENTFUL_SPACE_ID
+const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN
+
 export default function Home(props) {
   return (
     <ThemeProvider theme={epiTheme}>
@@ -56,6 +59,10 @@ export default function Home(props) {
         paragraphText={props.subheadlineParagraph}
         buttonText={props.subheadlineLinkText}
         buttonLink={props.subheadlineLink}
+        imageLink={props.imageLink}
+        imageWidth={props.imageWidth}
+        imageHeight={props.imageHeight}
+        imageDescription={props.imageDescription}
       />
       <Footer />
     </ThemeProvider>
@@ -65,6 +72,12 @@ export default function Home(props) {
 export async function getStaticProps() {
   const homeResponse = await fetchHome();
 
+  const imageId = homeResponse.fields.image.sys.id;
+
+  const response = await fetch(`https://cdn.contentful.com/spaces/${space}/environments/master/assets/${imageId}?access_token=${accessToken}`);
+  const imageResponse = await response.json();
+  JSON.parse(JSON.stringify(imageResponse));
+
   if (homeResponse.fields) {
     return {
       props: {
@@ -72,7 +85,11 @@ export async function getStaticProps() {
         subheadlineHeader: homeResponse.fields.subheadlineHeader,
         subheadlineParagraph: homeResponse.fields.subheadlineParagraph,
         subheadlineLinkText: homeResponse.fields.subheadlineLinkText,
-        subheadlineLink: homeResponse.fields.subheadlineLink
+        subheadlineLink: homeResponse.fields.subheadlineLink,
+        imageLink: imageResponse.fields.file.url,
+        imageWidth: imageResponse.fields.file.details.image.width,
+        imageHeight: imageResponse.fields.file.details.image.height,
+        imageDescription: imageResponse.fields.description,
       },
     };
   }

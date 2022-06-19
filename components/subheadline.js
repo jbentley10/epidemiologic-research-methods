@@ -52,10 +52,10 @@ const Subheadline = (props) => {
         <Grid item xs={12} md={6}>
           <Image
             layout={`responsive`}
-            width={`800`}
-            height={`600`}
-            src={`/images/bar-chart-increase.jpg`}
-            alt={`Bar chart made up of people`}
+            width={props.imageWidth}
+            height={props.imageHeight}
+            src={`https:${props.imageLink}`}
+            alt={props.imageDescription}
           />
         </Grid>
         <Grid item xs={12} md={6}>
