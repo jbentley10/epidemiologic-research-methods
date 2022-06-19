@@ -55,6 +55,7 @@ const Subheadline = (props) => {
             width={`800`}
             height={`600`}
             src={`/images/bar-chart-increase.jpg`}
+            alt={`Bar chart made up of people`}
           />
         </Grid>
         <Grid item xs={12} md={6}>

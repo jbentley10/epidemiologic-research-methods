@@ -74,6 +74,7 @@ const SubheadlineSwitch = (props) => {
             fill={`responsive`}
             width={props.splitTextImage.fields.file.details.image.width}
             height={props.splitTextImage.fields.file.details.image.height}
+            alt={props.splitTextImage.fields.file.details.image.description}
           />
         </Grid>
       </Grid>

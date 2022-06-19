@@ -46,6 +46,7 @@ const ExpertListing = () => {
     <div className={expertListingContainer}>
       {expertsData.map((expert) => (
         <ExpertCard
+          key={expert.name}
           name={expert.name}
           title={expert.title}
           description={expert.description}

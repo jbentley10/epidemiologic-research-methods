@@ -42,7 +42,7 @@ const Navigation = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Desktop styles */}
-          <Link href="/">
+          <Link href="/" passHref>
             <Image alt={`Epidemiology Research Methods, LLC logo`} layout={`intrinsic`} width={`127`} height={`100`} className={logo} src={`/images/logo-web.jpg`} />
           </Link>
 
@@ -54,7 +54,7 @@ const Navigation = () => {
             }}
           >
             {pages.map((page) => (
-              <Link key={page} href={"/" + (page === 'Home' ? '' : page.toLowerCase().replace(' ', '-'))}>
+              <Link passHref key={page} href={"/" + (page === 'Home' ? '' : page.toLowerCase().replace(' ', '-'))}>
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
@@ -103,7 +103,7 @@ const Navigation = () => {
               }}
             >
               {pages.map((page) => (
-                <Link key={page} href={"/" + page.toLowerCase()}>
+                <Link passHref key={page} href={"/" + page.toLowerCase()}>
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
