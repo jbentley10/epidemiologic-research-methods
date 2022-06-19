@@ -22,12 +22,12 @@ import {
 // Import components
 import Hero from "../components/hero";
 import Navigation from "../components/navigation";
-import Footer from "../components/footer";
 
 // Import assets
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { fetchPublications, fetchPublicationsPage } from "../utils/contentfulData";
 
-export default function Publications() {
+export default function Publications(props) {
   return (
     <ThemeProvider theme={epiTheme}>
       <Head>
@@ -48,58 +48,48 @@ export default function Publications() {
       />
       <div className={accordionContainer}>
         <div className={headingContainer}>
-          <Typography variant={`h2`}>Read our publications</Typography>
-          <Typography variant={`body1`}>
-            Lorem ipsum solor dut amet. Codipsicing elit.
-          </Typography>
+          <Typography variant={`h2`}>{props.heading}</Typography>
+          <Typography variant={`body1`}>{props.description}</Typography>
         </div>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography>
-              Systematic review of the literature on triclosan and health
-              outcomes in humans Critical Reviews in Toxicology 2018 48(1):1-51
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>Authors: Goodman M, Naiman D, LaKind J.</Typography>
-            <a
-              href="https://epidemiologymethods.com/wp-content/uploads/2019/07/Goodman-2017-Systematic-review-of-the-literature-on-triclosan-and-health-outcomes-in-humans.pdf"
-              target="_blank"
-              rel="noreferrer"
+        {props.publications.map(publication => {
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
             >
-              <Button variant={"contained"}>Read the publication</Button>
-            </a>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography>
-              Indirect estimation of the prevalence of spinal muscular atrophy
-              Type I, II, and III in the United States. Orphanet journal of rare
-              diseases, 2017;12(1):175.
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>Authors: Goodman M, Naiman D, LaKind J.</Typography>
-            <a
-              href="https://epidemiologymethods.com/wp-content/uploads/2019/07/Lally-2017-Indirect-estimation-of-the-prevalence-of-SMA-types-I-II-III-in-the-United-States.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button variant={"contained"}>Read the publication</Button>
-            </a>
-          </AccordionDetails>
-        </Accordion>
+              <Typography>
+                {publication.fields.title}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>{publication.fields.description}</Typography>
+              <a
+                href={`https:${publication.fields.file.url}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button variant={"contained"}>Read the publication</Button>
+              </a>
+            </AccordionDetails>
+          </Accordion>
+        })}
       </div>
-      <Footer />
     </ThemeProvider>
   );
+}
+
+export async function getStaticProps() {
+  const publicationsResponse = await fetchPublications();
+  const publicationsPageResponse = await fetchPublicationsPage();
+
+  if (publicationsPageResponse.fields) {
+    return {
+      props: {
+        heading: publicationsPageResponse.fields.heading,
+        description: publicationsPageResponse.fields.description,
+        publications: publicationsResponse.includes.Asset
+      },
+    };
+  }
 }

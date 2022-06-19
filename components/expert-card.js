@@ -18,10 +18,10 @@ export default function ExpertCard(props) {
         <Grid item xs={3}>
           <Image
             layout={`responsive`}
-            width={"300"}
-            height={"300"}
-            src={"/images" + props.imageLink}
-            alt={props.name}
+            src={`https:${props.image.file.url}`}
+            width={props.image.file.details.image.width}
+            height={props.image.file.details.image.height}
+            alt={props.image.file.details.image.description}
           />
         </Grid>
         <Grid item xs={1} />

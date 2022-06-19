@@ -13,9 +13,36 @@ export async function fetchHome() {
   console.log(`Error getting Entry.`)
 }
 
-export async function fetchAbout() {
-  const entry = await client.getEntry('78TioQnXxl5Ru6zYR8RmHo')
+export async function fetchServices() {
+  const entry = await client.getEntry('veJf1fVmcVYSEqAMAMMV8')
   if (entry.fields) return entry
+  
+  console.log(`Error getting Entry.`)
+}
+
+export async function fetchExperts() {
+  const entries = await client.getEntries({
+    content_type: 'expert'
+  })
+
+  if (entries.items[0].fields) return entries.items;
+  
+  console.log(`Error getting Entry.`)
+}
+
+export async function fetchPublicationsPage() {
+  const entry = await client.getEntry('4NUbbpLO2SZnw0VOXtQq2K')
+  if (entry.fields) return entry
+  
+  console.log(`Error getting Entry.`)
+}
+
+export async function fetchPublications() {
+  const entries = await client.getEntries({
+    content_type: 'publication'
+  })
+
+  if (entries.items[0].fields) return entries.items
   
   console.log(`Error getting Entry.`)
 }

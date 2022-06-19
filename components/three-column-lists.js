@@ -9,39 +9,33 @@ import { columnsContainer, columnContainer } from '../styles/ThreeColumnLists.mo
 
 const ThreeColumnLists = ({
   column1Heading,
-  columh1List,
+  column1Body,
   column2Heading,
-  columh2List,
+  column2Body,
   column3Heading,
-  columh3List,
+  column3Body,
 }) => {
   return (
     <Grid className={columnsContainer} container>
       <Grid className={columnContainer} item md={3}>
         <Typography variant={"h4"}>{column1Heading}</Typography>
-        <ul className={`column-list`}>
-          <li>lorem ipsum solor dut amet codipiscing elit.</li>
-          <li>lorem ipsum solor dut amet codipiscing elit.</li>
-          <li>lorem ipsum solor dut amet codipiscing elit.</li>
-        </ul>
+        <div className={`column-list`}>
+          {column1Body}
+        </div>
       </Grid>
 
       <Grid className={columnContainer} item md={3}>
         <Typography variant={"h4"}>{column2Heading}</Typography>
-        <ul className={`column-list`}>
-          <li>lorem ipsum solor dut amet codipiscing elit.</li>
-          <li>lorem ipsum solor dut amet codipiscing elit.</li>
-          <li>lorem ipsum solor dut amet codipiscing elit.</li>
-        </ul>
+        <div className={`column-list`}>
+          {column2Body}
+        </div>
       </Grid>
 
       <Grid className={columnContainer} item md={3}>
         <Typography variant={"h4"}>{column3Heading}</Typography>
-        <ul className={`column-list`}>
-          <li>lorem ipsum solor dut amet codipiscing elit.</li>
-          <li>lorem ipsum solor dut amet codipiscing elit.</li>
-          <li>lorem ipsum solor dut amet codipiscing elit.</li>
-        </ul>
+        <div className={`column-list`}>
+          {column3Body}
+        </div>
       </Grid>
     </Grid>
   );

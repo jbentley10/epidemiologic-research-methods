@@ -5,6 +5,7 @@
 // Import dependencies
 import { ThemeProvider } from "@mui/material";
 import Head from "next/head";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 // Import styles
 import { epiTheme } from "../styles/epiTheme";
@@ -12,14 +13,16 @@ import { epiTheme } from "../styles/epiTheme";
 // Import components
 import Hero from "../components/hero";
 import Navigation from "../components/navigation";
-import CenteredTextBlock from "../components/centered-text-block";
 import ThreeColumnLists from "../components/three-column-lists";
 
 // Import assets
 import { expertsBackground } from "../styles/Hero.module.scss";
 import Footer from "../components/footer";
 
-export default function Services() {
+// Import functions
+import { fetchServices } from "../utils/contentfulData";
+
+export default function Services(props) {
   return (
     <ThemeProvider theme={epiTheme}>
       <Head>
@@ -42,11 +45,31 @@ export default function Services() {
         button={false}
       />
       <ThreeColumnLists
-        column1Heading={`Heading 1`}
-        column2Heading={"Heading 2"}
-        column3Heading={"Heading 3"}
+        column1Heading={props.service1Heading}
+        column1Body={documentToReactComponents(props.service1Body)}
+        column2Heading={props.service2Heading}
+        column2Body={documentToReactComponents(props.service2Body)}
+        column3Heading={props.service3Heading}
+        column3Body={documentToReactComponents(props.service3Body)}
       />
       <Footer />
     </ThemeProvider>
   );
+}
+
+export async function getStaticProps() {
+  const servicesResponse = await fetchServices();
+
+  if (servicesResponse.fields) {
+    return {
+      props: {
+        service1Heading: servicesResponse.fields.service1Heading,
+        service1Body: servicesResponse.fields.service1Body,
+        service2Heading: servicesResponse.fields.service2Heading,
+        service2Body: servicesResponse.fields.service2Body,
+        service3Heading: servicesResponse.fields.service3Heading,
+        service3Body: servicesResponse.fields.service3Body,
+      },
+    };
+  }
 }

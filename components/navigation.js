@@ -22,7 +22,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { logo } from '../styles/Navigation.module.scss';
 
 // Declare pages from the app to populate the nav bar
-const pages = ["Home", "About", "Experts", "Services", "Publications", "Contact Us"];
+const pages = ["Home", "Services", "Experts", "Publications", "Contact Us"];
 
 const Navigation = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
