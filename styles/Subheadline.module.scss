@@ -5,6 +5,10 @@
 
 .textContainer {
     padding: 4rem 1rem;
+
+    @media (max-width: 720px) {
+        padding: 0;
+    }
 }
 
 .headingText {

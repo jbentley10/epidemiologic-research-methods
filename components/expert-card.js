@@ -9,13 +9,13 @@ import Typography from "@mui/material/Typography";
 import { Button, Paper, Grid } from "@mui/material";
 
 // Import styles
-import { PaperCard } from '../styles/ExpertCard.module.scss';
+import { PaperCard, ExpertText } from '../styles/ExpertCard.module.scss';
 
 export default function ExpertCard(props) {
   return (
     <Paper className={PaperCard}>
       <Grid container>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <Image
             layout={`responsive`}
             src={`https:${props.image.file.url}`}
@@ -24,8 +24,8 @@ export default function ExpertCard(props) {
             alt={props.image.file.details.image.description}
           />
         </Grid>
-        <Grid item xs={1} />
-        <Grid item xs={5}>
+        <Grid item xs={0} md={1} />
+        <Grid className={ExpertText} item xs={12} md={5}>
           <Typography gutterBottom variant="h5" component="div">
             {props.name}
           </Typography>

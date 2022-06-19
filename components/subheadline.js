@@ -48,7 +48,7 @@ const Subheadline = (props) => {
 
   return (
     <Box>
-      <Grid container spacing={10} className={mainGrid}>
+      <Grid container spacing={2} className={mainGrid}>
         <Grid item xs={12} md={6}>
           <Image
             layout={`responsive`}
@@ -58,7 +58,7 @@ const Subheadline = (props) => {
             alt={props.imageDescription}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={10} md={6}>
           <div className={textContainer}>
             <motion.div
               ref={ref}

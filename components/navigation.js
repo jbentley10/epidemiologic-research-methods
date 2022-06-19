@@ -103,7 +103,7 @@ const Navigation = () => {
               }}
             >
               {pages.map((page) => (
-                <Link passHref key={page} href={"/" + page.toLowerCase()}>
+                <Link key={page} href={"/" + (page === 'Home' ? '' : page.toLowerCase().replace(' ', '-'))}>
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
