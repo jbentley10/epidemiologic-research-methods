@@ -6,7 +6,7 @@
 import { React, useState } from "react";
 import Head from "next/head";
 import { ThemeProvider, TextField, Typography, Button } from "@mui/material";
-import Navigation from "../components/navigation";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 // Import styles
 import { epiTheme } from "../styles/epiTheme";
@@ -17,12 +17,16 @@ import {
 
 // Import components
 import Hero from "../components/hero";
+import Navigation from "../components/navigation";
+import Footer from "../components/footer";
 
 // Import assets
 import { expertsBackground } from "../styles/Hero.module.scss";
-import Footer from "../components/footer";
 
-export default function ContactUs() {
+// Import functions
+import { fetchContactUs } from "../utils/contentfulData";
+
+export default function ContactUs(props) {
   const [email, setValue] = useState("Controlled");
   const [emailError, setEmailError] = useState(false);
 
@@ -63,15 +67,8 @@ export default function ContactUs() {
       />
       <div className={formContainer}>
         <div className={headingContainer}>
-          <Typography variant={`h2`}>Let&apos;s get in touch</Typography>
-          <Typography variant={`body1`}>
-            Use the form below to send us a message. Alternatively, you can send
-            an email to&nbsp;
-            <a href="mailto:admin@epidemiologymethods.com">
-              admin@epidemiologymethods.com
-            </a>
-            .
-          </Typography>
+          <Typography variant={`h2`}>{props.heading}</Typography>
+          <div>{documentToReactComponents(props.description)}</div>
         </div>
         <TextField id="outlined-basic" label="Full Name" variant="outlined" />
         <TextField
@@ -101,4 +98,17 @@ export default function ContactUs() {
       <Footer />
     </ThemeProvider>
   );
+}
+
+export async function getStaticProps() {
+  const contactUsResponse = await fetchContactUs();
+
+  if (contactUsResponse.fields) {
+    return {
+      props: {
+        heading: contactUsResponse.fields.heading,
+        description: contactUsResponse.fields.description,
+      },
+    };
+  }
 }

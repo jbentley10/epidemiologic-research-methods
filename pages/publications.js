@@ -25,7 +25,10 @@ import Navigation from "../components/navigation";
 
 // Import assets
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { fetchPublications, fetchPublicationsPage } from "../utils/contentfulData";
+import {
+  fetchPublications,
+  fetchPublicationsPage,
+} from "../utils/contentfulData";
 
 export default function Publications(props) {
   return (
@@ -51,28 +54,28 @@ export default function Publications(props) {
           <Typography variant={`h2`}>{props.heading}</Typography>
           <Typography variant={`body1`}>{props.description}</Typography>
         </div>
-        {props.publications.map(publication => {
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <Typography>
-                {publication.fields.title}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{publication.fields.description}</Typography>
-              <a
-                href={`https:${publication.fields.file.url}`}
-                target="_blank"
-                rel="noreferrer"
+        {props.publications.map((publication) => {
+          return (
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
               >
-                <Button variant={"contained"}>Read the publication</Button>
-              </a>
-            </AccordionDetails>
-          </Accordion>
+                <Typography>{publication.fields.title}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>{publication.fields.description}</Typography>
+                <a
+                  href={`https:${publication.fields.file.url}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Button variant={"contained"}>Read the publication</Button>
+                </a>
+              </AccordionDetails>
+            </Accordion>
+          );
         })}
       </div>
     </ThemeProvider>
@@ -83,12 +86,12 @@ export async function getStaticProps() {
   const publicationsResponse = await fetchPublications();
   const publicationsPageResponse = await fetchPublicationsPage();
 
-  if (publicationsPageResponse.fields) {
+  if (publicationsPageResponse.fields && publicationsResponse[0].fields) {
     return {
       props: {
         heading: publicationsPageResponse.fields.heading,
         description: publicationsPageResponse.fields.description,
-        publications: publicationsResponse.includes.Asset
+        publications: publicationsResponse,
       },
     };
   }

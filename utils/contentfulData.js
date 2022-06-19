@@ -42,7 +42,14 @@ export async function fetchPublications() {
     content_type: 'publication'
   })
 
-  if (entries.items[0].fields) return entries.items
+  if (entries.includes.Asset[0].fields) return entries.includes.Asset
+  
+  console.log(`Error getting Entry.`)
+}
+
+export async function fetchContactUs() {
+  const entry = await client.getEntry('ZaJdzDiEO5R2OjhxF90eu')
+  if (entry.fields) return entry
   
   console.log(`Error getting Entry.`)
 }
