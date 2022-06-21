@@ -3,9 +3,11 @@
  */
 
 // Import dependencies
+import { useEffect } from 'react';
 import { ThemeProvider } from "@mui/material";
 import Image from "next/image";
 import Head from "next/head";
+import TagManager from "react-gtm-module";
 
 // Import components
 import Navigation from "../components/navigation";
@@ -22,10 +24,15 @@ import { homeBackground } from "../styles/Hero.module.scss";
 // Import functions
 import { fetchHome } from "../utils/contentfulData";
 
-const space = process.env.CONTENTFUL_SPACE_ID
-const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN
+const space = process.env.CONTENTFUL_SPACE_ID;
+const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
+const gtmId = process.env.GTM_ID;
 
 export default function Home(props) {
+  useEffect(() => {
+    TagManager.initialize({ gtmId: gtmId });
+  }, []);
+
   return (
     <ThemeProvider theme={epiTheme}>
       <Head>
