@@ -89,7 +89,7 @@ const Subheadline = (props) => {
               variants={buttonVariants}
               transition={{ duration: 4 }}
             >
-              <Link passHref={true} href={`/ ${props.buttonLink}`}>
+              <Link passHref={true} href={`/${props.buttonLink}`}>
                 <Button
                   className={subheadlineButton}
                   variant={`contained`}

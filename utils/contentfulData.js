@@ -53,3 +53,10 @@ export async function fetchContactUs() {
   
   console.log(`Error getting Entry.`)
 }
+
+export async function fetchPageNotFound() {
+  const entry = await client.getEntry('6A4SrAAreqG2puQWW8LKkE')
+  if (entry.fields) return entry
+  
+  console.log(`Error getting Entry.`)
+}

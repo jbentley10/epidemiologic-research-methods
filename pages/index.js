@@ -3,7 +3,7 @@
  */
 
 // Import dependencies
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import { ThemeProvider } from "@mui/material";
 import Image from "next/image";
 import Head from "next/head";
@@ -31,6 +31,7 @@ const gtmId = process.env.GTM_ID;
 export default function Home(props) {
   useEffect(() => {
     TagManager.initialize({ gtmId: gtmId });
+    console.log("gtm id: " + gtmId);
   }, []);
 
   return (
@@ -49,10 +50,7 @@ export default function Home(props) {
       </Head>
       <GooBlob />
       <Navigation />
-      <Hero
-        heroText={props.hero}
-        heroImage={homeBackground}
-      />
+      <Hero heroText={props.hero} heroImage={homeBackground} />
       <Image
         src={`/images/stacked-waves-haikei.png`}
         layout={`responsive`}
@@ -61,7 +59,7 @@ export default function Home(props) {
         className={midwayImage}
         alt={`Stacked waves`}
       />
-      <Subheadline 
+      <Subheadline
         headingText={props.subheadlineHeader}
         paragraphText={props.subheadlineParagraph}
         buttonText={props.subheadlineLinkText}

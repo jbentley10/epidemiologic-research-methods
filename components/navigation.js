@@ -27,8 +27,6 @@ const pages = ["Home", "Services", "Experts", "Publications", "Contact Us"];
 const Navigation = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
-  const [anchorElServices, setAnchorElServices] = useState(null);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -103,7 +101,7 @@ const Navigation = () => {
               }}
             >
               {pages.map((page) => (
-                <Link key={page} href={"/" + (page === 'Home' ? '' : page.toLowerCase().replace(' ', '-'))}>
+                <Link passHref key={page} href={"/" + (page === 'Home' ? '' : page.toLowerCase().replace(' ', '-'))}>
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
