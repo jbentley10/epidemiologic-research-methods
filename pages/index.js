@@ -8,12 +8,12 @@ import { ThemeProvider } from "@mui/material";
 import Image from "next/image";
 import Head from "next/head";
 import TagManager from "react-gtm-module";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 // Import components
 import Navigation from "../components/navigation";
 import Hero from "../components/hero";
 import Subheadline from "../components/subheadline";
-import GooBlob from "../components/goo-blob";
 import Footer from "../components/footer";
 
 // Import styles
@@ -48,20 +48,19 @@ export default function Home(props) {
         <meta name="theme-color" content="#f9C586" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <GooBlob />
       <Navigation />
       <Hero heroText={props.hero} heroImage={homeBackground} />
       <Image
         src={`/images/stacked-waves-haikei.png`}
         layout={`responsive`}
         width={`100%`}
-        height={`10vh`}
+        height={`3vh`}
         className={midwayImage}
         alt={`Stacked waves`}
       />
       <Subheadline
-        headingText={props.subheadlineHeader}
-        paragraphText={props.subheadlineParagraph}
+        headingText={documentToReactComponents(props.subheadlineHeader)}
+        paragraphText={documentToReactComponents(props.subheadlineParagraph)}
         buttonText={props.subheadlineLinkText}
         buttonLink={props.subheadlineLink}
         imageLink={props.imageLink}
@@ -79,7 +78,9 @@ export async function getStaticProps() {
 
   const imageId = homeResponse.fields.image.sys.id;
 
-  const response = await fetch(`https://cdn.contentful.com/spaces/${space}/environments/master/assets/${imageId}?access_token=${accessToken}`);
+  const response = await fetch(
+    `https://cdn.contentful.com/spaces/${space}/environments/master/assets/${imageId}?access_token=${accessToken}`
+  );
   const imageResponse = await response.json();
   JSON.parse(JSON.stringify(imageResponse));
 
@@ -88,7 +89,7 @@ export async function getStaticProps() {
       props: {
         hero: homeResponse.fields.hero,
         subheadlineHeader: homeResponse.fields.subheadlineHeader,
-        subheadlineParagraph: homeResponse.fields.subheadlineParagraph,
+        subheadlineParagraph: homeResponse.fields.subheadlineResponse,
         subheadlineLinkText: homeResponse.fields.subheadlineLinkText,
         subheadlineLink: homeResponse.fields.subheadlineLink,
         imageLink: imageResponse.fields.file.url,

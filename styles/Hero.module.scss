@@ -1,9 +1,16 @@
 .heroContainer {
-  padding: 35vh 8vw 20vh 8vw;
   background-blend-mode: darken;
   background-size: cover;
   z-index: 10;
   position: relative;
+
+  @media (min-width: 1600px) {
+    padding: 15vh 3vw 4vh;
+  }
+
+  @media (min-width: 641px) {
+    padding: 22vh 3vw 4vh;
+  }
 
   @media (max-width: 640px) {
     padding: 2vh 5vw;
@@ -12,7 +19,7 @@
 
 .subheroContainer {
   @extend .heroContainer;
-  padding: 30vh 8vw 15vh 8vw;
+  padding: 15vh 3vw 4vh;
 
   @media (max-width: 720px) {
     padding: 10vh 8vw 7vh 8vw;
@@ -20,11 +27,11 @@
 }
 
 .homeBackground {
-  background-image: url('../public/images/hero-background.jpg');
+  background-image: url("../public/images/hero-background.jpg");
 }
 
 .expertsBackground {
-  background-image: url('../public/images/hero-background.jpg');
+  background-image: url("../public/images/hero-background.jpg");
 }
 
 .textContainer {
@@ -39,13 +46,16 @@
   }
 }
 
-.heading1, .heading2 {
+.heading1,
+.heading2 {
   cursor: default;
 }
 
 .heading1 {
+  font-size: 50px;
+  line-height: 55px;
+
   @media (max-width: 640px) {
-    font-size: 50px;
     line-height: 55px;
     padding-bottom: 2vh;
   }
@@ -58,4 +68,3 @@
 .button {
   margin-top: 1.5rem;
 }
-

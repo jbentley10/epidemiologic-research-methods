@@ -54,7 +54,7 @@ export const epiTheme = createTheme({
   typography: {
     // H1 - Primarily used for large text inside the card blocks
     h1: {
-      fontFamily: `"Inter"`,
+      fontFamily: 'Questrial',
       fontWeight: 500,
       letterSpacing: "-0.00833em",
       fontSize: "65px",
@@ -63,24 +63,24 @@ export const epiTheme = createTheme({
     },
     // H2 - Used for the headings at the top of the dashboards
     h2: {
-      fontFamily: `"Inter"`,
+      fontFamily: 'Questrial',
       fontWeight: 400,
-      fontSize: "28px",
+      fontSize: "30px",
       lineHeight: 1.25,
       letterSpacing: "-0.00833em",
     },
     // H3 - Used for the body text of health screening cards
     h3: {
-      fontFamily: `"Inter"`,
+      fontFamily: 'Questrial',
       fontWeight: 400,
-      fontSize: "30px",
+      fontSize: "28px",
       lineHeight: "35px",
       letterSpacing: "-0.00833em",
       textOverflow: "ellipsis",
     },
     // H4 - Used for the headings of cards and panels
     h4: {
-      fontFamily: `"Inter"`,
+      fontFamily: 'Questrial',
       fontWeight: 500,
       fontSize: "20px",
       lineHeight: "25px",
@@ -89,7 +89,7 @@ export const epiTheme = createTheme({
     },
     // H5 - Used for the headings of panel block list items, or highlighted body text (bold text)
     h5: {
-      fontFamily: `"Inter"`,
+      fontFamily: 'Questrial',
       fontWeight: 500,
       fontSize: "18px",
       lineHeight: "21px",
@@ -97,7 +97,7 @@ export const epiTheme = createTheme({
     },
     // H6 - Used for dashboard subtitles
     h6: {
-      fontFamily: `"Inter"`,
+      fontFamily: 'Questrial',
       fontWeight: 500,
       fontSize: "16px",
       lineHeight: "21px",

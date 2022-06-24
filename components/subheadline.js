@@ -2,7 +2,7 @@
  * @file subheadline.js
  */
 // Import dependencies
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import Link from "next/link";
 import Image from "next/image";
@@ -27,18 +27,18 @@ const Subheadline = (props) => {
   // All of the variants used to animate the elements of the component
   const headingVariants = {
     hidden: { translateY: -10, opacity: 0 },
-    visible: { translateY: 1, opacity: 1 }
+    visible: { translateY: 1, opacity: 1 },
   };
 
   const subheadingVariants = {
     hidden: { translateY: -5, opacity: 0 },
-    visible: { translateY: 1, opacity: 1 }
+    visible: { translateY: 1, opacity: 1 },
   };
 
   const buttonVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1 }
-  }
+    visible: { opacity: 1 },
+  };
 
   useEffect(() => {
     if (inView) {
@@ -48,8 +48,9 @@ const Subheadline = (props) => {
 
   return (
     <Box>
-      <Grid container spacing={2} className={mainGrid}>
-        <Grid item xs={12} md={6}>
+      <Grid container className={mainGrid}>
+        <Grid item xs={0} md={2} />
+        <Grid item xs={12} md={3}>
           <Image
             layout={`responsive`}
             width={props.imageWidth}
@@ -58,7 +59,8 @@ const Subheadline = (props) => {
             alt={props.imageDescription}
           />
         </Grid>
-        <Grid item xs={10} md={6}>
+        <Grid item xs={0} md={1} />
+        <Grid item xs={10} md={5}>
           <div className={textContainer}>
             <motion.div
               ref={ref}
@@ -67,9 +69,7 @@ const Subheadline = (props) => {
               variants={headingVariants}
               transition={{ duration: 2 }}
             >
-              <Typography className={headingText} variant={`h3`}>
-                {props.headingText}
-              </Typography>
+              <div>{props.headingText}</div>
             </motion.div>
             <motion.div
               ref={ref}
@@ -78,9 +78,7 @@ const Subheadline = (props) => {
               variants={subheadingVariants}
               transition={{ duration: 3 }}
             >
-            <Typography className={subheadingText} variant={`body1`}>
-            <div>{props.paragraphText}</div>
-            </Typography>
+              <div>{props.paragraphText}</div>
             </motion.div>
             <motion.div
               ref={ref}
@@ -102,6 +100,7 @@ const Subheadline = (props) => {
             </motion.div>
           </div>
         </Grid>
+        <Grid item xs={0} md={1} />
       </Grid>
     </Box>
   );
