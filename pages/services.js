@@ -5,6 +5,7 @@
 // Import dependencies
 import { ThemeProvider } from "@mui/material";
 import Head from "next/head";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 // Import styles
 import { epiTheme } from "../styles/epiTheme";
@@ -45,11 +46,11 @@ export default function Services(props) {
       />
       <ThreeColumnLists
         column1Heading={props.service1Heading}
-        column1Body={props.service1Body}
+        column1Body={documentToReactComponents(props.service1Body)}
         column2Heading={props.service2Heading}
-        column2Body={props.service2Body}
+        column2Body={documentToReactComponents(props.service2Body)}
         column3Heading={props.service3Heading}
-        column3Body={props.service3Body}
+        column3Body={documentToReactComponents(props.service3Body)}
       />
       <Footer />
     </ThemeProvider>

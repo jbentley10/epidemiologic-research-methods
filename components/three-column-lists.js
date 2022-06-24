@@ -17,21 +17,21 @@ const ThreeColumnLists = ({
 }) => {
   return (
     <Grid className={columnsContainer} container>
-      <Grid className={columnContainer} item md={3}>
+      <Grid className={columnContainer} item md={3.75}>
         <Typography variant={"h4"}>{column1Heading}</Typography>
         <div className={`column-list`}>
           {column1Body}
         </div>
       </Grid>
 
-      <Grid className={columnContainer} item md={3}>
+      <Grid className={columnContainer} item md={3.75}>
         <Typography variant={"h4"}>{column2Heading}</Typography>
         <div className={`column-list`}>
           {column2Body}
         </div>
       </Grid>
 
-      <Grid className={columnContainer} item md={3}>
+      <Grid className={columnContainer} item md={3.75}>
         <Typography variant={"h4"}>{column3Heading}</Typography>
         <div className={`column-list`}>
           {column3Body}

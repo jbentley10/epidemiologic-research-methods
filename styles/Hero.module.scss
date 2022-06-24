@@ -19,11 +19,6 @@
 
 .subheroContainer {
   @extend .heroContainer;
-  padding: 15vh 3vw 4vh;
-
-  @media (max-width: 720px) {
-    padding: 10vh 8vw 7vh 8vw;
-  }
 }
 
 .homeBackground {
