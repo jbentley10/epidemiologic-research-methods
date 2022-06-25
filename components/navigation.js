@@ -41,7 +41,7 @@ const Navigation = () => {
         <Toolbar disableGutters>
           {/* Desktop styles */}
           <Link href="/" passHref>
-            <Image alt={`Epidemiology Research Methods, LLC logo`} layout={`intrinsic`} width={`127`} height={`100`} className={logo} src={`/images/logo-web.jpg`} />
+            <Image alt={`Epidemiology Research Methods, LLC logo`} layout={`intrinsic`} width={127} height={100} className={logo} src={`/images/logo-web.jpg`} />
           </Link>
 
           <Box

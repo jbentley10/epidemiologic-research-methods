@@ -14,8 +14,6 @@ import { useEffect } from "react";
 import {
   mainGrid,
   textContainer,
-  headingText,
-  subheadingText,
   subheadlineButton,
 } from "../styles/Subheadline.module.scss";
 
