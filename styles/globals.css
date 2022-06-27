@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
+@font-face {
+  font-family: 'Rodina';
+  src: url('../public/fonts/Rodina-Regular.otf');
+  font-weight: 400;
+  font-style: normal;
+}
+
 html,
 body {
   padding: 0;
