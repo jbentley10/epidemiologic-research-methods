@@ -1,9 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
 @font-face {
-  font-family: 'Rodina';
-  src: url('../public/fonts/Rodina-Regular.otf');
+  font-family: 'Bahnschrift';
+  src: url('../public/fonts/Bahnschrift-Regular.ttf');
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bahnschrift';
+  src: url('../public/fonts/Bahnschrift-SemiBold.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bahnschrift';
+  src: url('../public/fonts/Bahnschrift-Bold.ttf');
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -20,6 +34,57 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+h1: {
+      font-family: 'Bahnschrift';
+      font-weight: 400;
+      letter-spacing: -0.00833em;
+      font-size: 65px;
+      line-height: 80px;
+      text-align: center;
+    },
+    // H2 - Used for the headings at the top of the dashboards
+    h2: {
+      font-family: 'Bahnschrift';
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 12;
+      letter-spacing: -0.00833em;
+    },
+    // H3 - Used for the body text of health screening cards
+    h3: {
+      font-family: 'Bahnschrift';
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 35px;
+      letter-spacing: -0.00833em;
+      text-overflow: ellipsis;
+    },
+    // H4 - Used for the headings of cards and panels
+    h4: {
+      font-family: 'Bahnschrift';
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 25px;
+      letter-spacing: -0.00833em;
+      text-overflow: ellipsis;
+    },
+    // H5 - Used for the headings of panel block list items, or highlighted body text (bold text)
+    h5: {
+      font-family: 'Bahnschrift';
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      text-align-sacing: -0.00833em;
+    },
+    // H6 - Used for dashboard subtitles
+    h6: {
+      font-family: 'Bahnschrift';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 21px;
+      text-align-sacing: -0.00833em;
+    },
 
 * {
   box-sizing: border-box;
