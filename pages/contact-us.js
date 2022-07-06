@@ -7,6 +7,7 @@ import { React, useState } from "react";
 import Head from "next/head";
 import { ThemeProvider, TextField, Typography, Button } from "@mui/material";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { styled } from '@mui/material/styles';
 
 // Import styles
 import { epiTheme } from "../styles/epiTheme";
@@ -25,6 +26,20 @@ import { expertsBackground } from "../styles/Hero.module.scss";
 
 // Import functions
 import { fetchContactUs } from "../utils/contentfulData";
+
+const CssTextField = styled(TextField)({
+  '& label.Mui-focused': {
+    color: '#0072bc',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: '#0072bc',
+  },
+  '& .MuiOutlinedInput-root': {
+    '&.Mui-focused fieldset': {
+      borderColor: '#0072bc',
+    },
+  },
+});
 
 export default function ContactUs(props) {
   const [email, setValue] = useState("Controlled");
@@ -70,8 +85,11 @@ export default function ContactUs(props) {
           <Typography variant={`h2`}>{props.heading}</Typography>
           <div>{documentToReactComponents(props.description)}</div>
         </div>
-        <TextField id="outlined-basic" label="Full Name" variant="outlined" />
-        <TextField
+        <CssTextField
+          id="outlined-basic"
+          label="Full Name"
+        />
+        <CssTextField
           id="outlined-basic"
           onChange={handleEmailChange}
           error={emailError}
@@ -79,8 +97,8 @@ export default function ContactUs(props) {
           label="Email"
           variant="outlined"
         />
-        <TextField id="outlined-basic" label="Subject" variant="outlined" />
-        <TextField
+        <CssTextField id="outlined-basic" label="Subject" variant="outlined" />
+        <CssTextField
           id="outlined-basic"
           label="Message"
           multiline

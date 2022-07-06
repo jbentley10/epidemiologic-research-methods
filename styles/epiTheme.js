@@ -124,5 +124,5 @@ export const epiTheme = createTheme({
       fontSize: "14px",
       letterSpacing: "1px",
     },
-  },
+  }
 });
