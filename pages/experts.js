@@ -56,7 +56,23 @@ export default function Experts(props) {
 }
 
 export async function getStaticProps() {
-  const expertsResponse = await fetchExperts();
+  const expertsArray = await fetchExperts();
+
+  // Sort the experts by created date
+  // Create a shallow copy of the array
+  const expertsResponse = expertsArray.slice();
+
+  // Start looping
+  for (let i = 0; i < expertsResponse.length; i++) {
+    for (let j = 0; j < expertsResponse.length - 1 - i; j++) {
+      let currentObject = expertsResponse[j];
+      let nextObject = expertsResponse[j + 1];
+
+      if (currentObject.sys.createdAt > nextObject.sys.createdAt) {
+        [expertsResponse[j], expertsResponse[j+1]] = [expertsResponse[j+1], expertsResponse[j]];
+      }
+    }
+  }
 
   let expertsImageIds = [];
   let expertsCVIds = [];
