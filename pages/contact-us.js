@@ -3,11 +3,12 @@
  */
 
 // Import dependencies
-import { React, useState } from "react";
+import { React, useEffect, useState, useRef } from "react";
 import Head from "next/head";
 import { ThemeProvider, TextField, Typography, Button } from "@mui/material";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
+import emailjs from "@emailjs/browser";
 
 // Import styles
 import { epiTheme } from "../styles/epiTheme";
@@ -28,36 +29,103 @@ import { expertsBackground } from "../styles/Hero.module.scss";
 import { fetchContactUs } from "../utils/contentfulData";
 
 const CssTextField = styled(TextField)({
-  '& label.Mui-focused': {
-    color: '#0072bc',
+  "& label.Mui-focused": {
+    color: "#0072bc",
   },
-  '& .MuiInput-underline:after': {
-    borderBottomColor: '#0072bc',
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#0072bc",
   },
-  '& .MuiOutlinedInput-root': {
-    '&.Mui-focused fieldset': {
-      borderColor: '#0072bc',
+  "& .MuiOutlinedInput-root": {
+    "&.Mui-focused fieldset": {
+      borderColor: "#0072bc",
     },
   },
 });
 
-export default function ContactUs(props) {
-  const [email, setValue] = useState("Controlled");
-  const [emailError, setEmailError] = useState(false);
+const initialFormState = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
 
-  const handleEmailChange = (event) => {
-    // validate the email
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(event)) {
-      setEmailError(false);
-    } else {
-      setEmailError(true);
+const initialErrorState = {
+  nameError: null,
+  emailError: null,
+};
+
+export default function ContactUs(props) {
+  const [errors, setErrors] = useState(initialErrorState);
+  const [formState, setFormState] = useState(initialFormState);
+  const [isMessageSent, setIsMessageSent] = useState(false);
+  const form = useRef(); // Requried for EmailJS to work
+
+  const handleChange = (event) => {
+    switch (event.target.name) {
+      case "name":
+        setFormState({ ...formState, name: event.target.value });
+        break;
+      case "email":
+        setFormState({ ...formState, email: event.target.value });
+        break;
+      case "subject":
+        setFormState({ ...formState, subject: event.target.value });
+        break;
+      case "message":
+        setFormState({ ...formState, message: event.target.value });
+        break;
+      default:
+        break;
     }
   };
 
-  const handleSubmit = (event) => {
-    console.log("submitted");
-    setValue(event.target.value);
+  const validate = () => {
+    let nameError = "";
+    let emailError = "";
+
+    if (!formState.name) {
+      nameError = "Name cannot be blank";
+    }
+
+    if (!formState.email.includes("@")) {
+      emailError = "Invalid email";
+    }
+
+    if (emailError || nameError) {
+      setErrors({ name: emailError, email: nameError });
+      return false;
+    }
+
+    setErrors(initialErrorState);
+    setIsMessageSent(true);
+    return true;
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const isValid = validate();
+    if (isValid) {
+      // Send the email via email.js
+      emailjs
+        .sendForm(
+          props.serviceID,
+          props.templateID,
+          form.current,
+          props.publicKey
+        )
+        .then(
+          (result) => {
+            setFormState(initialFormState);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    }
+  };
+
+  useEffect(() => {}, [formState]);
 
   return (
     <ThemeProvider theme={epiTheme}>
@@ -85,33 +153,52 @@ export default function ContactUs(props) {
           <Typography variant={`h2`}>{props.heading}</Typography>
           <div>{documentToReactComponents(props.description)}</div>
         </div>
-        <CssTextField
-          id="outlined-basic"
-          label="Full Name"
-        />
-        <CssTextField
-          id="outlined-basic"
-          onChange={handleEmailChange}
-          error={emailError}
-          helperText={emailError ? "Invalid email address" : false}
-          label="Email"
-          variant="outlined"
-        />
-        <CssTextField id="outlined-basic" label="Subject" variant="outlined" />
-        <CssTextField
-          id="outlined-basic"
-          label="Message"
-          multiline
-          rows={4}
-          variant="outlined"
-        />
-        <Button
-          onClick={handleSubmit}
-          variant={`contained`}
-          color={`secondary`}
-        >
-          Submit
-        </Button>
+        {isMessageSent ? (
+          <p>Message sent!</p>
+        ) : (
+          <form ref={form} onSubmit={handleSubmit}>
+            <CssTextField
+              id="outlined-basic"
+              label="Full Name"
+              name="name"
+              onChange={handleChange}
+              value={formState.name}
+              error={errors.nameError}
+              helperText={errors.name ? errors.name : false}
+            />
+            <CssTextField
+              id="outlined-basic"
+              onChange={handleChange}
+              name="email"
+              value={formState.email}
+              error={errors.emailError}
+              helperText={errors.email ? errors.email : false}
+              label="Email"
+              variant="outlined"
+            />
+            <CssTextField
+              id="outlined-basic"
+              label="Subject"
+              variant="outlined"
+              value={formState.subject}
+              name="subject"
+              onChange={handleChange}
+            />
+            <CssTextField
+              id="outlined-basic"
+              label="Message"
+              name="message"
+              value={formState.message}
+              multiline
+              rows={4}
+              variant="outlined"
+              onChange={handleChange}
+            />
+            <Button type={"submit"} variant={`contained`} color={`secondary`}>
+              Submit
+            </Button>
+          </form>
+        )}
       </div>
       <Footer />
     </ThemeProvider>
@@ -121,11 +208,19 @@ export default function ContactUs(props) {
 export async function getStaticProps() {
   const contactUsResponse = await fetchContactUs();
 
+  // Get email vars from env vars
+  const serviceID = `${process.env.EMAILJS_SERVICE_ID}`;
+  const publicKey = `${process.env.EMAILJS_PUBLIC_KEY}`;
+  const templateID = `${process.env.EMAILJS_TEMPLATE_ID}`;
+
   if (contactUsResponse.fields) {
     return {
       props: {
         heading: contactUsResponse.fields.heading,
         description: contactUsResponse.fields.description,
+        serviceID: serviceID,
+        publicKey: publicKey,
+        templateID: templateID,
       },
     };
   }
