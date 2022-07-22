@@ -21,6 +21,7 @@ import Footer from "../components/footer";
 
 // Import functions
 import { fetchAboutUs } from "../utils/contentfulData";
+import SubheadlineSwitch from "../components/subheadline-switch";
 
 export default function AboutUs(props) {
   return (
@@ -44,6 +45,12 @@ export default function AboutUs(props) {
         heroImage={expertsBackground}
         button={false}
       />
+      {props.subheadlineHeader && props.subheadlineParagraph && (
+        <SubheadlineSwitch
+          headingText={documentToReactComponents(props.subheadlineHeader)}
+          paragraphText={documentToReactComponents(props.subheadlineParagraph)}
+        />
+      )}
       <ThreeColumnLists
         column1Heading={props.service1Heading}
         column1Body={documentToReactComponents(props.service1Body)}
@@ -63,6 +70,8 @@ export async function getStaticProps() {
   if (servicesResponse.fields) {
     return {
       props: {
+        subheadlineHeader: servicesResponse.fields.subheadlineHeader ? servicesResponse.fields.subheadlineHeader : null,
+        subheadlineParagraph: servicesResponse.fields.subheadlineParagraph ? servicesResponse.fields.subheadlineParagraph : null,
         service1Heading: servicesResponse.fields.service1Heading,
         service1Body: servicesResponse.fields.service1Body,
         service2Heading: servicesResponse.fields.service2Heading,
