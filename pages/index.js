@@ -27,6 +27,7 @@ import { fetchHome } from "../utils/contentfulData";
 const space = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
 const gtmId = process.env.GTM_ID;
+const environment = process.env.CONTENTFUL_ENVIRONMENT;
 
 export default function Home(props) {
   useEffect(() => {
@@ -79,7 +80,7 @@ export async function getStaticProps() {
   const imageId = homeResponse.fields.image.sys.id;
 
   const response = await fetch(
-    `https://cdn.contentful.com/spaces/${space}/environments/master/assets/${imageId}?access_token=${accessToken}`
+    `https://cdn.contentful.com/spaces/${space}/environments/${environment}/assets/${imageId}?access_token=${accessToken}`
   );
   const imageResponse = await response.json();
   JSON.parse(JSON.stringify(imageResponse));

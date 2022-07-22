@@ -1,9 +1,11 @@
 const space = process.env.CONTENTFUL_SPACE_ID
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN
+const environment = process.env.CONTENTFUL_ENVIRONMENT
 
 const client = require('contentful').createClient({
   space: space,
   accessToken: accessToken,
+  environment: environment
 })
 
 export async function fetchHome() {
@@ -13,7 +15,7 @@ export async function fetchHome() {
   console.log(`Error getting Entry.`)
 }
 
-export async function fetchServices() {
+export async function fetchAboutUs() {
   const entry = await client.getEntry('veJf1fVmcVYSEqAMAMMV8')
   if (entry.fields) return entry
   

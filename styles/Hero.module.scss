@@ -3,18 +3,14 @@
   background-size: cover;
   z-index: 10;
   position: relative;
-  padding: 18vh 3vw 4vh;
-  
-  @media (max-width: 1200px) {
-    padding: 25vh 3vw 4vh;
-  }
+  padding: 11em 4em 2rem 1rem;
 
-  @media (max-width: 1020px) {
-    padding: 20vh 3vw 4vh;
+  @media (max-width: 920px) {
+    padding: 10em 4em 2em 1em;
   }
 
   @media (max-width: 640px) {
-    padding: 2vh 5vw;
+    padding: 4em 1em 0rem 1rem;
   }
 }
 

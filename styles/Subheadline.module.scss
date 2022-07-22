@@ -3,7 +3,7 @@
 }
 
 .textContainer {
-  padding: 4rem 1rem;
+  padding: 1.5rem 1rem;
   font-family: "Bahnschrift";
   font-weight: 400;
 
@@ -11,8 +11,12 @@
     font-family: "Roboto";
   }
 
+  @media (min-width: 1400px) {
+    padding: 2.5rem 1rem;
+  }
+
   @media (max-width: 720px) {
-    padding: 0;
+    padding: 0 2rem;
   }
 }
 

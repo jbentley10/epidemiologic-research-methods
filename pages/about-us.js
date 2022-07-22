@@ -20,19 +20,19 @@ import { expertsBackground } from "../styles/Hero.module.scss";
 import Footer from "../components/footer";
 
 // Import functions
-import { fetchServices } from "../utils/contentfulData";
+import { fetchAboutUs } from "../utils/contentfulData";
 
-export default function Services(props) {
+export default function AboutUs(props) {
   return (
     <ThemeProvider theme={epiTheme}>
       <Head>
-        <title>Services | Epidemiologic Research & Methods LLC</title>
+        <title>About Us | Epidemiologic Research & Methods LLC</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <html lang={`en`} />
         <meta
           name="description"
-          content={`Learn more about the services that ERM provides.`}
+          content={`Learn more about Epidemiology Research & Methods (ERM).`}
         />
         <meta name="theme-color" content="#f9C586" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -40,7 +40,7 @@ export default function Services(props) {
       <Navigation />
       <Hero
         isSubhero={true}
-        heroText={"Services"}
+        heroText={"About Us"}
         heroImage={expertsBackground}
         button={false}
       />
@@ -58,7 +58,7 @@ export default function Services(props) {
 }
 
 export async function getStaticProps() {
-  const servicesResponse = await fetchServices();
+  const servicesResponse = await fetchAboutUs();
 
   if (servicesResponse.fields) {
     return {
