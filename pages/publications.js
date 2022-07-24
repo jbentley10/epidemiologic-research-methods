@@ -28,6 +28,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   fetchPublications,
   fetchPublicationsPage,
+  fetchPublicationAsset
 } from "../utils/contentfulData";
 
 export default function Publications(props) {
@@ -67,7 +68,7 @@ export default function Publications(props) {
               <AccordionDetails>
                 <Typography>{publication.fields.description}</Typography>
                 <a
-                  href={`https:${publication.fields.file.url}`}
+                  href={publication.fields.pdf ? `https:${publication.fields.file.url}` : publication.fields.link}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -83,8 +84,27 @@ export default function Publications(props) {
 }
 
 export async function getStaticProps() {
-  const publicationsResponse = await fetchPublications();
+  const publicationsArray = await fetchPublications();
   const publicationsPageResponse = await fetchPublicationsPage();
+
+  const publicationsResponse = publicationsArray.slice();
+
+  let publicationPDFID = '';
+
+  // Look at the publications response
+  // Iterate through each of the elements
+  for (var i = 0; i < publicationsResponse.length; i++) {
+    // If one of the elements has a PDF
+    if (publicationsResponse[i].fields.pdf) {
+      // Store the ID
+      publicationPDFID = publicationsResponse[i].fields.pdf.sys.id;
+      
+      const publicationAsset = fetchPublicationAsset(publicationPDFID);
+      console.log(publicationAsset.fields);
+      
+      publicationsResponse[i].fields.pdf.url = publicationAsset.fields.file.url;
+    }
+  }
 
   if (publicationsPageResponse.fields && publicationsResponse[0].fields) {
     return {

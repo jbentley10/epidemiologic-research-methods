@@ -68,7 +68,7 @@ export async function getStaticProps() {
       let currentObject = expertsResponse[j];
       let nextObject = expertsResponse[j + 1];
 
-      if (currentObject.sys.createdAt > nextObject.sys.createdAt) {
+      if (currentObject.sys.orderNumber < nextObject.sys.orderNumber) {
         [expertsResponse[j], expertsResponse[j+1]] = [expertsResponse[j+1], expertsResponse[j]];
       }
     }

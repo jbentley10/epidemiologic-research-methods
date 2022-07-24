@@ -44,9 +44,14 @@ export async function fetchPublications() {
     content_type: 'publication'
   })
 
-  if (entries.includes.Asset[0].fields) return entries.includes.Asset
+  if (entries.items[0].fields) return entries.items;
   
   console.log(`Error getting Entry.`)
+}
+
+export async function fetchPublicationAsset(assetID) {
+  const asset = await client.getAsset(assetID)
+  console.log(asset)
 }
 
 export async function fetchContactUs() {
