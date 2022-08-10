@@ -3,7 +3,6 @@
  */
 
 // Import dependencies
-import { useEffect } from "react";
 import { ThemeProvider } from "@mui/material";
 import Image from "next/image";
 import Head from "next/head";
@@ -23,6 +22,8 @@ import { homeBackground } from "../styles/Hero.module.scss";
 
 // Import functions
 import { fetchPage } from "../utils/contentfulData";
+import { useEffect } from "react";
+import Script from "next/script";
 
 const space = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
@@ -31,9 +32,10 @@ const environment = process.env.CONTENTFUL_ENVIRONMENT;
 
 export default function Home(props) {
   useEffect(() => {
-    TagManager.initialize({ gtmId: gtmId });
-    console.log("gtm id: " + gtmId);
-  }, []);
+    TagManager.initialize({
+      gtmId: 'P835S26'
+    })
+  }, [])
 
   return (
     <ThemeProvider theme={epiTheme}>
@@ -49,6 +51,22 @@ export default function Home(props) {
         <meta name="theme-color" content="#f9C586" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+      
+      <Script
+        id="gtm"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          _html: `
+            <!-- Google Tag Manager -->
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P835S26');</script>
+            <!-- End Google Tag Manager -->
+          `
+        }}
+      />
       <Navigation />
       <Hero heroText={props.hero} heroImage={homeBackground} />
       <Image
