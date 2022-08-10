@@ -6,7 +6,6 @@
 import { ThemeProvider } from "@mui/material";
 import Image from "next/image";
 import Head from "next/head";
-import TagManager from "react-gtm-module";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 // Import components
@@ -22,7 +21,6 @@ import { homeBackground } from "../styles/Hero.module.scss";
 
 // Import functions
 import { fetchPage } from "../utils/contentfulData";
-import { useEffect } from "react";
 import Script from "next/script";
 
 const space = process.env.CONTENTFUL_SPACE_ID;
@@ -31,12 +29,6 @@ const gtmId = process.env.GTM_ID;
 const environment = process.env.CONTENTFUL_ENVIRONMENT;
 
 export default function Home(props) {
-  useEffect(() => {
-    TagManager.initialize({
-      gtmId: 'P835S26'
-    })
-  }, [])
-
   return (
     <ThemeProvider theme={epiTheme}>
       <Script
@@ -44,14 +36,11 @@ export default function Home(props) {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           _html: `
-            <!-- Google Tag Manager -->
-            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-P835S26');</script>
-            <!-- End Google Tag Manager -->
-          `
+            <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P835S26"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+          `,
         }}
       />
       <Head>
@@ -66,18 +55,6 @@ export default function Home(props) {
         <meta name="theme-color" content="#f9C586" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Script
-        id="gtm"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          _html: `
-            <!-- Google Tag Manager (noscript) -->
-            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P835S26"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <!-- End Google Tag Manager (noscript) -->
-          `
-        }}
-      />
       <Navigation />
       <Hero heroText={props.hero} heroImage={homeBackground} />
       <Image
@@ -104,7 +81,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const homeResponse = await fetchPage('4U1GSbufjN9wm74xKKVGN0');
+  const homeResponse = await fetchPage("4U1GSbufjN9wm74xKKVGN0");
 
   const imageId = homeResponse.fields.image.sys.id;
 
