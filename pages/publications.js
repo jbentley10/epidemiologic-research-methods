@@ -68,7 +68,7 @@ export default function Publications(props) {
               <AccordionDetails>
                 <Typography>{publication.fields.description}</Typography>
                 <a
-                  href={publication.fields.pdf ? `https:${publication.fields.file.url}` : publication.fields.link}
+                  href={publication.fields.pdf ? `https:${publication.fields.pdf.url}` : publication.fields.link}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -99,10 +99,11 @@ export async function getStaticProps() {
       // Store the ID
       publicationPDFID = publicationsResponse[i].fields.pdf.sys.id;
       
-      const publicationAsset = fetchPublicationAsset(publicationPDFID);
-      console.log(publicationAsset.fields);
+      const publicationAsset = await fetchPublicationAsset(publicationPDFID);
       
-      publicationsResponse[i].fields.pdf.url = publicationAsset.fields.file.url;
+      if (publicationAsset.fields) {
+        publicationsResponse[i].fields.pdf.url = publicationAsset.fields.file.url;
+      }
     }
   }
 

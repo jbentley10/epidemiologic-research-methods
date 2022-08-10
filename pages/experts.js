@@ -17,7 +17,7 @@ import { epiTheme } from "../styles/epiTheme";
 import { expertsBackground } from "../styles/Hero.module.scss";
 
 // Import functions
-import { fetchExperts } from "../utils/contentfulData";
+import { fetchExperts, fetchExpertAsset } from "../utils/contentfulData";
 
 // Declare data-retrieval vars
 const space = process.env.CONTENTFUL_SPACE_ID;
@@ -86,20 +86,22 @@ export async function getStaticProps() {
     let expertsPhotos = [];
 
     for (var i = 0; i < expertsImageIds.length; i++) {
-      const response = await fetch(`https://cdn.contentful.com/spaces/${space}/environments/master/assets/${expertsImageIds[i]}?access_token=${accessToken}`);
-      const data = await response.json();
-      expertsPhotos.push(data);
+      const response = await fetchExpertAsset(expertsImageIds[i]);
+      // const response = await fetch(`https://cdn.contentful.com/spaces/${space}/environments/master/assets/${expertsImageIds[i]}?access_token=${accessToken}`);
+      expertsPhotos.push(response);
     }
 
     let expertsCVs = [];
     
     for (var i = 0; i < expertsCVIds.length; i++) {
-      const response = await fetch(`https://cdn.contentful.com/spaces/${space}/environments/master/assets/${expertsCVIds[i]}?access_token=${accessToken}`);
-      const data = await response.json();
-      expertsCVs.push(data);
+      const response = await fetchExpertAsset(expertsCVIds[i]);
+      // const response = await fetch(`https://cdn.contentful.com/spaces/${space}/environments/master/assets/${expertsCVIds[i]}?access_token=${accessToken}`);
+      expertsCVs.push(response);
     }
 
-    JSON.parse(JSON.stringify(expertsPhotos));
+    const parsedPhotos = expertsPhotos;
+    console.log(parsedPhotos);
+
     JSON.parse(JSON.stringify(expertsCVs));
 
     if (expertsPhotos[0]) {

@@ -51,7 +51,16 @@ export async function fetchPublications() {
 
 export async function fetchPublicationAsset(assetID) {
   const asset = await client.getAsset(assetID)
-  console.log(asset)
+  if (asset) return asset;
+
+  console.log('Error getting asset.');
+}
+
+export async function fetchExpertAsset(assetID) {
+  const asset = await client.getAsset(assetID)
+  if (asset) return asset;
+
+  console.log('Error getting asset.');
 }
 
 export async function fetchContactUs() {
