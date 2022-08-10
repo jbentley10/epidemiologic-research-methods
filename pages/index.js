@@ -25,7 +25,6 @@ import Script from "next/script";
 
 const space = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
-const gtmId = process.env.GTM_ID;
 const environment = process.env.CONTENTFUL_ENVIRONMENT;
 
 export default function Home(props) {

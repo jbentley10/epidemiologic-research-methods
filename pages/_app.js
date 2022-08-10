@@ -1,3 +1,9 @@
+/**
+ * @file _app.js
+ */
+// Import dependencies
+import Script from "next/script";
+
 // Import styles
 import "../styles/globals.css";
 
@@ -14,12 +20,28 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <Script src={`https://www.googletagmanager.com/gtm.js?id=GTM-P835S26`} />
+      <Script 
+        id="google-analytics" 
+        strategy="afterInteractive" 
+        dangerouslySetInnerHTML={{
+          _html: `
+            <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-3Q0B52XCZV"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-3Q0B52XCZV');
+            </script>
+          `
+        }}
+      />
       <Component {...pageProps} />
     </>
   );
