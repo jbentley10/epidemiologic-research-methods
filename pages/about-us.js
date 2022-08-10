@@ -20,7 +20,7 @@ import { expertsBackground } from "../styles/Hero.module.scss";
 import Footer from "../components/footer";
 
 // Import functions
-import { fetchAboutUs } from "../utils/contentfulData";
+import { fetchPage } from "../utils/contentfulData";
 import SubheadlineSwitch from "../components/subheadline-switch";
 
 export default function AboutUs(props) {
@@ -65,7 +65,7 @@ export default function AboutUs(props) {
 }
 
 export async function getStaticProps() {
-  const servicesResponse = await fetchAboutUs();
+  const servicesResponse = await fetchPage('veJf1fVmcVYSEqAMAMMV8');
 
   if (servicesResponse.fields) {
     return {

@@ -26,7 +26,7 @@ import Footer from "../components/footer";
 import { expertsBackground } from "../styles/Hero.module.scss";
 
 // Import functions
-import { fetchContactUs } from "../utils/contentfulData";
+import { fetchPage } from "../utils/contentfulData";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -206,7 +206,7 @@ export default function ContactUs(props) {
 }
 
 export async function getStaticProps() {
-  const contactUsResponse = await fetchContactUs();
+  const contactUsResponse = await fetchPage('ZaJdzDiEO5R2OjhxF90eu');
 
   // Get email vars from env vars
   const serviceID = `${process.env.EMAILJS_SERVICE_ID}`;

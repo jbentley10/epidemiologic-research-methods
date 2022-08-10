@@ -8,18 +8,18 @@ const client = require('contentful').createClient({
   environment: environment
 })
 
-export async function fetchHome() {
-  const entry = await client.getEntry('4U1GSbufjN9wm74xKKVGN0')
+export async function fetchPage(id) {
+  const entry = await client.getEntry(id)
   if (entry.fields) return entry
   
   console.log(`Error getting Entry.`)
 }
 
-export async function fetchAboutUs() {
-  const entry = await client.getEntry('veJf1fVmcVYSEqAMAMMV8')
-  if (entry.fields) return entry
-  
-  console.log(`Error getting Entry.`)
+export async function fetchAsset(assetID) {
+  const asset = await client.getAsset(assetID)
+  if (asset) return asset;
+
+  console.log('Error getting asset.');
 }
 
 export async function fetchExperts() {
@@ -32,47 +32,12 @@ export async function fetchExperts() {
   console.log(`Error getting Entry.`)
 }
 
-export async function fetchPublicationsPage() {
-  const entry = await client.getEntry('4NUbbpLO2SZnw0VOXtQq2K')
-  if (entry.fields) return entry
-  
-  console.log(`Error getting Entry.`)
-}
-
 export async function fetchPublications() {
   const entries = await client.getEntries({
     content_type: 'publication'
   })
 
   if (entries.items[0].fields) return entries.items;
-  
-  console.log(`Error getting Entry.`)
-}
-
-export async function fetchPublicationAsset(assetID) {
-  const asset = await client.getAsset(assetID)
-  if (asset) return asset;
-
-  console.log('Error getting asset.');
-}
-
-export async function fetchExpertAsset(assetID) {
-  const asset = await client.getAsset(assetID)
-  if (asset) return asset;
-
-  console.log('Error getting asset.');
-}
-
-export async function fetchContactUs() {
-  const entry = await client.getEntry('ZaJdzDiEO5R2OjhxF90eu')
-  if (entry.fields) return entry
-  
-  console.log(`Error getting Entry.`)
-}
-
-export async function fetchPageNotFound() {
-  const entry = await client.getEntry('6A4SrAAreqG2puQWW8LKkE')
-  if (entry.fields) return entry
   
   console.log(`Error getting Entry.`)
 }

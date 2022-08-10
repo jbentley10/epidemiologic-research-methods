@@ -26,7 +26,7 @@ import {
 } from "../styles/Subheadline.module.scss";
 
 // Import functions
-import { fetchPageNotFound } from "../utils/contentfulData";
+import { fetchPage } from "../utils/contentfulData";
 
 export default function PageNotFound(props) {
   return (
@@ -65,7 +65,7 @@ export default function PageNotFound(props) {
 }
 
 export async function getStaticProps() {
-  const pageNotFoundResponse = await fetchPageNotFound();
+  const pageNotFoundResponse = await fetchPage('6A4SrAAreqG2puQWW8LKkE');
 
   if (pageNotFoundResponse.fields) {
     return {

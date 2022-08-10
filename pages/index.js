@@ -22,7 +22,7 @@ import { midwayImage } from "../styles/Home.module.scss";
 import { homeBackground } from "../styles/Hero.module.scss";
 
 // Import functions
-import { fetchHome } from "../utils/contentfulData";
+import { fetchPage } from "../utils/contentfulData";
 
 const space = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
@@ -75,7 +75,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const homeResponse = await fetchHome();
+  const homeResponse = await fetchPage('4U1GSbufjN9wm74xKKVGN0');
 
   const imageId = homeResponse.fields.image.sys.id;
 

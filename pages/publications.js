@@ -27,8 +27,8 @@ import Navigation from "../components/navigation";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   fetchPublications,
-  fetchPublicationsPage,
-  fetchPublicationAsset
+  fetchPage,
+  fetchAsset
 } from "../utils/contentfulData";
 
 export default function Publications(props) {
@@ -85,7 +85,7 @@ export default function Publications(props) {
 
 export async function getStaticProps() {
   const publicationsArray = await fetchPublications();
-  const publicationsPageResponse = await fetchPublicationsPage();
+  const publicationsPageResponse = await fetchPage('4NUbbpLO2SZnw0VOXtQq2K');
 
   const publicationsResponse = publicationsArray.slice();
 
@@ -99,7 +99,7 @@ export async function getStaticProps() {
       // Store the ID
       publicationPDFID = publicationsResponse[i].fields.pdf.sys.id;
       
-      const publicationAsset = await fetchPublicationAsset(publicationPDFID);
+      const publicationAsset = await fetchAsset(publicationPDFID);
       
       if (publicationAsset.fields) {
         publicationsResponse[i].fields.pdf.url = publicationAsset.fields.file.url;

@@ -17,7 +17,7 @@ import { epiTheme } from "../styles/epiTheme";
 import { expertsBackground } from "../styles/Hero.module.scss";
 
 // Import functions
-import { fetchExperts, fetchExpertAsset } from "../utils/contentfulData";
+import { fetchExperts, fetchAsset } from "../utils/contentfulData";
 
 // Declare data-retrieval vars
 const space = process.env.CONTENTFUL_SPACE_ID;
@@ -86,23 +86,16 @@ export async function getStaticProps() {
     let expertsPhotos = [];
 
     for (var i = 0; i < expertsImageIds.length; i++) {
-      const response = await fetchExpertAsset(expertsImageIds[i]);
-      // const response = await fetch(`https://cdn.contentful.com/spaces/${space}/environments/master/assets/${expertsImageIds[i]}?access_token=${accessToken}`);
+      const response = await fetchAsset(expertsImageIds[i]);
       expertsPhotos.push(response);
     }
 
     let expertsCVs = [];
     
     for (var i = 0; i < expertsCVIds.length; i++) {
-      const response = await fetchExpertAsset(expertsCVIds[i]);
-      // const response = await fetch(`https://cdn.contentful.com/spaces/${space}/environments/master/assets/${expertsCVIds[i]}?access_token=${accessToken}`);
+      const response = await fetchAsset(expertsCVIds[i]);
       expertsCVs.push(response);
     }
-
-    const parsedPhotos = expertsPhotos;
-    console.log(parsedPhotos);
-
-    JSON.parse(JSON.stringify(expertsCVs));
 
     if (expertsPhotos[0]) {
       return {
