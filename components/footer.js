@@ -15,7 +15,7 @@ const Footer = () => {
       </Typography>
       
       <Typography variant={"body1"}>
-        Copyright 2022
+        Copyright 2024
       </Typography>      
     </div>
   );
