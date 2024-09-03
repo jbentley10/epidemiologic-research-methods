@@ -12,7 +12,7 @@ const ShinyAppEmbed = () => {
         }}
       >
         <iframe
-          src='https://jianheng-li-apps.shinyapps.io/DM1-V1/_w_d78ea433/'
+          src='https://erm-toolkits.shinyapps.io/Vertex_DM1_PrevTool/'
           style={{ border: "none", width: "100%", height: "100%" }}
           title='Shiny App'
           allowFullScreen
