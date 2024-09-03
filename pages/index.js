@@ -3,10 +3,12 @@
  */
 
 // Import dependencies
+import { useEffect } from "react";
 import { ThemeProvider } from "@mui/material";
 import Image from "next/image";
 import Head from "next/head";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import TagManager from "react-gtm-module";
 
 // Import components
 import Navigation from "../components/navigation";
@@ -21,13 +23,20 @@ import { homeBackground } from "../styles/Hero.module.scss";
 
 // Import functions
 import { fetchPage } from "../utils/contentfulData";
-import Script from "next/script";
 
 const space = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
 const environment = process.env.CONTENTFUL_ENVIRONMENT;
 
 export default function Home(props) {
+  const tagManagerArgs = {
+    id: "GTM-P835S26",
+  }
+  
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs)
+  })
+
   return (
     <ThemeProvider theme={epiTheme}>
       <Head>
