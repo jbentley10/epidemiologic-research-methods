@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { ThemeProvider } from "@mui/material";
 import Image from "next/image";
 import Head from "next/head";
+import Script from "next/script";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import TagManager from "react-gtm-module";
 
@@ -31,11 +32,11 @@ const environment = process.env.CONTENTFUL_ENVIRONMENT;
 export default function Home(props) {
   const tagManagerArgs = {
     id: "GTM-P835S26",
-  }
-  
+  };
+
   useEffect(() => {
-    TagManager.initialize(tagManagerArgs)
-  })
+    TagManager.initialize(tagManagerArgs);
+  });
 
   return (
     <ThemeProvider theme={epiTheme}>
