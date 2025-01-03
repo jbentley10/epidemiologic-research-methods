@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 
-const ShinyAppEmbed = () => {
+const ShinyAppEmbed = (appLink) => {
   return (
     <Container maxWidth='xl'>
       <div
@@ -12,7 +12,7 @@ const ShinyAppEmbed = () => {
         }}
       >
         <iframe
-          src='https://erm-toolkits.shinyapps.io/Vertex_DM1_PrevTool/'
+          src={appLink}
           style={{ border: "none", width: "100%", height: "100%" }}
           title='Shiny App'
           allowFullScreen

@@ -14,11 +14,11 @@ import Navigation from "../components/navigation";
 import Footer from "../components/footer";
 import ShinyAppEmbed from "../components/shiny-app-embed";
 
-export default function DM1PrevalenceTool(props) {
+export default function Huntington(props) {
   return (
     <ThemeProvider theme={epiTheme}>
       <Head>
-        <title>DM1 Prevalence Tool | Epidemiologic Research & Methods LLC</title>
+        <title>Shiny | Epidemiologic Research & Methods LLC</title>
         <link rel='icon' href='/favicon.ico' />
         <link rel='manifest' href='/manifest.json' />
         <html lang={`en`} />
@@ -30,7 +30,7 @@ export default function DM1PrevalenceTool(props) {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
       <Navigation />
-      <ShinyAppEmbed appLink={'https://erm-toolkits.shinyapps.io/Vertex_DM1_PrevTool/'}/>
+      <ShinyAppEmbed appLink={'https://kayleighlm.shinyapps.io/desktop/'}/>
       <Footer />
     </ThemeProvider>
   );
