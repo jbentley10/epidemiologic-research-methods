@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 
-const ShinyAppEmbed = (appLink) => {
+const ShinyAppEmbed = (props) => {
   return (
     <Container maxWidth='xl'>
       <div
@@ -12,7 +12,7 @@ const ShinyAppEmbed = (appLink) => {
         }}
       >
         <iframe
-          src={appLink}
+          src={props.appLink}
           style={{ border: "none", width: "100%", height: "100%" }}
           title='Shiny App'
           allowFullScreen
