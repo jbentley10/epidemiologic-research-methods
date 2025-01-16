@@ -16,7 +16,7 @@ const Footer = () => {
       </Typography>
           
       <Typography variant={"body1"}>
-        Site design by <Link href="https://palmspringswebdesign.net">Palm Springs Web Design</Link>
+        Site design by <Link href="https://palmspringswebdesign.net" target='_blank'>Palm Springs Web Design</Link>
       </Typography>     
     </div>
   );
