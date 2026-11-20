@@ -15,5 +15,8 @@ export function middleware(req) {
 }
 
 export const config = {
-  matcher: "/((?!_next).*)", // Match all routes except Next.js internal routes
+  // Match page routes only: skip Next.js internals, API routes, and static files
+  // (anything with a file extension, e.g. /fonts/Bahnschrift-Regular.ttf), whose
+  // paths are case-sensitive and must not be lowercased.
+  matcher: "/((?!_next|api|.*\\..*).*)",
 };
