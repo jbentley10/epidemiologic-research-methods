@@ -5,7 +5,7 @@
 import { Button, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 // Import styles
 import {

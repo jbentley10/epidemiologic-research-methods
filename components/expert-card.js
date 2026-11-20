@@ -4,7 +4,7 @@
 
 // Import dependencies
 import * as React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Typography from "@mui/material/Typography";
 import { Button, Paper, Grid } from "@mui/material";
 
