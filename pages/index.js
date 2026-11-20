@@ -5,7 +5,7 @@
 // Import dependencies
 import { useEffect } from "react";
 import { ThemeProvider } from "@mui/material";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Head from "next/head";
 import Script from "next/script";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
